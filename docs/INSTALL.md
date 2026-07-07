@@ -25,7 +25,7 @@ npm install @dv-uikit/web-components
 ## 3. Use in plain JS/TS
 
 ```ts
-import '@dv-uikit/web-components';
+import '@dv-uikit/web-components/auto-register';
 import '@dv-uikit/web-components/styles.css';
 
 const button = document.createElement('dv-button');
@@ -37,6 +37,7 @@ document.body.appendChild(button);
 ## 4. Use in React
 
 ```tsx
+import '@dv-uikit/web-components/auto-register';
 import '@dv-uikit/web-components/styles.css';
 import { DvButtonReact, DvCardReact } from '@dv-uikit/web-components/react';
 

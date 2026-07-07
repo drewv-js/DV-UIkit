@@ -1,7 +1,35 @@
-import './auto-register';
+import * as React from 'react';
+export type ButtonVariant = 'primary' | 'secondary' | 'danger';
 
-export { DvButtonReact } from './react/dv-button';
-export type { DvButtonProps } from './react/dv-button';
+type DvButtonElement = HTMLElement & {
+	variant?: ButtonVariant;
+	disabled?: boolean;
+	label?: string;
+};
 
-export { DvCardReact } from './react/dv-card';
-export type { DvCardProps } from './react/dv-card';
+type DvCardElement = HTMLElement & {
+	heading?: string;
+};
+
+export type DvButtonProps = React.HTMLAttributes<DvButtonElement> & {
+	variant?: ButtonVariant;
+	disabled?: boolean;
+	label?: string;
+	children?: React.ReactNode;
+};
+
+export type DvCardProps = React.HTMLAttributes<DvCardElement> & {
+	heading?: string;
+	children?: React.ReactNode;
+};
+
+export const DvButtonReact = React.forwardRef<DvButtonElement, DvButtonProps>(
+	({ children, ...rest }, ref) => React.createElement('dv-button', { ...rest, ref }, children)
+);
+
+export const DvCardReact = React.forwardRef<DvCardElement, DvCardProps>(
+	({ children, ...rest }, ref) => React.createElement('dv-card', { ...rest, ref }, children)
+);
+
+DvButtonReact.displayName = 'DvButtonReact';
+DvCardReact.displayName = 'DvCardReact';

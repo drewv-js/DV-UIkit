@@ -3,7 +3,7 @@
 Private, reusable UI kit for personal projects with a lean-professional workflow.
 
 - Package: `@dv-uikit/web-components`
-- Stack: Lit Web Components, Tailwind-based tokens, optional React wrappers
+- Stack: Stencil Web Components, Tailwind-based tokens, React/TypeScript wrappers
 - Registry: npmjs private package (personal account)
 
 ## Quick Start
@@ -17,7 +17,7 @@ npm install @dv-uikit/web-components
 ```
 
 ```ts
-import '@dv-uikit/web-components';
+import '@dv-uikit/web-components/auto-register';
 import '@dv-uikit/web-components/styles.css';
 ```
 
@@ -25,6 +25,7 @@ import '@dv-uikit/web-components/styles.css';
 
 - Install and consume: [docs/INSTALL.md](docs/INSTALL.md)
 - Build and test: [docs/BUILD.md](docs/BUILD.md)
+- Component structure standard: [docs/COMPONENT_STRUCTURE.md](docs/COMPONENT_STRUCTURE.md)
 - Publish and release: [docs/PUBLISH.md](docs/PUBLISH.md)
 - Release checklist: [docs/RELEASE_CHECKLIST.md](docs/RELEASE_CHECKLIST.md)
 - Maintenance workflow: [docs/MAINTENANCE.md](docs/MAINTENANCE.md)

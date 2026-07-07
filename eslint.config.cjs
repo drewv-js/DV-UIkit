@@ -21,6 +21,7 @@ module.exports = [
     rules: {
       ...tsPlugin.configs.recommended.rules,
       'no-undef': 'off',
+      '@typescript-eslint/no-unused-vars': ['error', { varsIgnorePattern: '^h$' }],
       '@typescript-eslint/consistent-type-imports': ['error', { prefer: 'type-imports' }]
     }
   },
