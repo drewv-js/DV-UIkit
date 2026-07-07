@@ -10,15 +10,30 @@ export { ButtonVariant } from "./components/button/button";
 export namespace Components {
     interface DvButton {
         /**
+          * Disables the button, preventing user interaction.
           * @default false
          */
         "disabled": boolean;
         /**
+          * Associates the button with a form by id when rendered outside the form.
+         */
+        "form"?: string;
+        /**
+          * Fallback label content when slot is empty.
           * @default 'Button'
          */
         "label": string;
+        /**
+          * Programmatically focuses the button element.
+         */
         "setFocus": () => Promise<void>;
         /**
+          * The native button type.
+          * @default 'button'
+         */
+        "type": 'button' | 'submit' | 'reset';
+        /**
+          * The visual style variant of the button.
           * @default 'primary'
          */
         "variant": ButtonVariant;
@@ -51,14 +66,26 @@ declare global {
 declare namespace LocalJSX {
     interface DvButton {
         /**
+          * Disables the button, preventing user interaction.
           * @default false
          */
         "disabled"?: boolean;
         /**
+          * Associates the button with a form by id when rendered outside the form.
+         */
+        "form"?: string;
+        /**
+          * Fallback label content when slot is empty.
           * @default 'Button'
          */
         "label"?: string;
         /**
+          * The native button type.
+          * @default 'button'
+         */
+        "type"?: 'button' | 'submit' | 'reset';
+        /**
+          * The visual style variant of the button.
           * @default 'primary'
          */
         "variant"?: ButtonVariant;
@@ -73,7 +100,9 @@ declare namespace LocalJSX {
     interface DvButtonAttributes {
         "variant": ButtonVariant;
         "disabled": boolean;
+        "type": 'button' | 'submit' | 'reset';
         "label": string;
+        "form": string;
     }
     interface DvCardAttributes {
         "heading": string;

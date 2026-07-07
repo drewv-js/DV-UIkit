@@ -1,11 +1,11 @@
 import { newSpecPage } from '@stencil/core/testing';
-import { DButton } from './button';
+import { DvButton } from './button';
 
-describe('d-button', () => {
+describe('dv-button', () => {
   it('renders with primary class by default', async () => {
     const page = await newSpecPage({
-      components: [DButton],
-      html: '<d-button>Save</d-button>'
+      components: [DvButton],
+      html: '<dv-button>Save</dv-button>'
     });
 
     const button = page.root?.shadowRoot?.querySelector('button');
@@ -14,8 +14,8 @@ describe('d-button', () => {
 
   it('applies disabled attribute to native button', async () => {
     const page = await newSpecPage({
-      components: [DButton],
-      html: '<d-button disabled></d-button>'
+      components: [DvButton],
+      html: '<dv-button disabled></dv-button>'
     });
 
     const button = page.root?.shadowRoot?.querySelector('button');

@@ -1,23 +1,23 @@
 import { Component, h, Host, Prop } from '@stencil/core';
 
 @Component({
-  tag: 'd-card',
+  tag: 'dv-card',
   styleUrl: 'card.scss',
   shadow: true
 })
-export class DCard {
+export class DvCard {
   @Prop({ reflect: true })
   heading = '';
 
   render() {
     return (
       <Host>
-      <article part="card">
-        {this.heading ? <header part="header">{this.heading}</header> : null}
-        <div class="body" part="body">
-          <slot />
-        </div>
-      </article>
+        <article part="card">
+          {this.heading ? <header part="header">{this.heading}</header> : null}
+          <div class="body" part="body">
+            <slot />
+          </div>
+        </article>
       </Host>
     );
   }

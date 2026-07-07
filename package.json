@@ -48,6 +48,9 @@
     "lint": "eslint \"src/**/*.{ts,tsx}\"",
     "component:new": "node ./scripts/new-component.mjs",
     "component:check": "node ./scripts/validate-components.mjs",
+    "storybook:prepare": "npm run build:stencil",
+    "storybook": "npm run storybook:prepare && storybook dev -p 6006",
+    "storybook:build": "npm run storybook:prepare && storybook build",
     "test": "stencil test --spec",
     "audit": "npm audit --omit=dev",
     "prepublishOnly": "npm run lint && npm run test && npm run build",
@@ -87,6 +90,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.39.4",
+    "@storybook/web-components-vite": "^10.4.6",
     "@types/jest": "^29.5.14",
     "@types/react": "^19.2.17",
     "@typescript-eslint/eslint-plugin": "^8.63.0",
@@ -99,6 +103,7 @@
     "react": "^19.2.7",
     "react-dom": "^19.2.7",
     "sass-embedded": "^1.100.0",
+    "storybook": "^10.4.6",
     "tailwindcss": "^3.4.17",
     "typescript": "^6.0.3"
   }

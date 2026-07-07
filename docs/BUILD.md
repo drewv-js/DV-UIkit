@@ -25,6 +25,20 @@ npm run test
 npm run build
 ```
 
+## Visual development and review
+
+Run Storybook locally:
+
+```bash
+npm run storybook
+```
+
+Create a static Storybook build:
+
+```bash
+npm run storybook:build
+```
+
 Build outputs are generated in `dist`:
 
 - `index.js` and `auto-register.js`
