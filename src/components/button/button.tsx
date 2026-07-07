@@ -1,8 +1,6 @@
 import { Component, Element, h, Host, Method, Prop } from '@stencil/core';
 import { submitForm } from '../../internal/forms';
 
-export type ButtonVariant = 'primary' | 'secondary' | 'danger';
-
 @Component({
 	tag: 'dv-button',
 	styleUrl: 'button.scss',
@@ -13,10 +11,16 @@ export class DvButton {
 	@Element() host!: HTMLElement;
 
 	/** The visual style variant of the button. */
-	@Prop({ reflect: true }) variant: ButtonVariant = 'primary';
+	@Prop({ reflect: true }) variant?: 'primary' | 'secondary' | 'text' = 'primary';
 
 	/** Disables the button, preventing user interaction. */
 	@Prop({ reflect: true }) disabled: boolean = false;
+
+    /** Puts the button in a loading state, showing a spinner and preventing interaction. The button width stays fixed. */
+	@Prop({ reflect: true }) loading: boolean = false;
+
+    /** Expands the button to fill the full width of its container. */
+	@Prop({ reflect: true }) fullWidth: boolean = false;
 
 	/** The native button type. */
 	@Prop({ reflect: true }) type: 'button' | 'submit' | 'reset' = 'button';
@@ -51,7 +55,7 @@ export class DvButton {
 		return {
 			primary: this.variant === 'primary',
 			secondary: this.variant === 'secondary',
-			danger: this.variant === 'danger'
+			text: this.variant === 'text'
 		};
 	}
 
