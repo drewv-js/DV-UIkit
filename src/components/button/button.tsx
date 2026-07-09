@@ -3,7 +3,6 @@ import { submitForm } from '../../internal/forms';
 
 @Component({
 	tag: 'dv-button',
-	styleUrl: 'button.scss',
 	shadow: true
 })
 export class DvButton {
@@ -15,9 +14,6 @@ export class DvButton {
 
 	/** Disables the button, preventing user interaction. */
 	@Prop({ reflect: true }) disabled: boolean = false;
-
-    /** Puts the button in a loading state, showing a spinner and preventing interaction. The button width stays fixed. */
-	@Prop({ reflect: true }) loading: boolean = false;
 
     /** Expands the button to fill the full width of its container. */
 	@Prop({ reflect: true }) fullWidth: boolean = false;
@@ -51,16 +47,20 @@ export class DvButton {
 		submitForm(this.host);
 	};
 
-	private getClassName() {
-		return {
-			primary: this.variant === 'primary',
-			secondary: this.variant === 'secondary',
-			text: this.variant === 'text'
-		};
-	}
-
+	/** @private */
 	render() {
-		const classes = this.getClassName();
+		const baseClasses =
+			'inline-flex w-auto max-w-full items-center justify-center gap-2 rounded-radius-lg border px-4 py-2 text-sm font-medium transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2';
+
+		const variantClasses = {
+			primary: 'border-blue-600 bg-blue-600 text-white hover:bg-blue-700 focus-visible:ring-blue-600',
+			secondary: 'border-blue-600 bg-white text-blue-700 hover:bg-blue-50 focus-visible:ring-blue-600',
+			text: 'border-transparent bg-transparent text-blue-700 hover:bg-blue-50 focus-visible:ring-blue-600'
+		}[this.variant ?? 'primary'];
+
+		const disabledClasses = this.disabled ? 'cursor-not-allowed opacity-60 pointer-events-none' : '';
+		const widthClasses = this.fullWidth ? 'w-full' : '';
+		const classes = `${baseClasses} ${variantClasses} ${disabledClasses} ${widthClasses}`.trim();
 
 		return (
 			<Host>
@@ -68,6 +68,7 @@ export class DvButton {
 					class={classes}
 					disabled={this.disabled}
 					onClick={this.handleClick}
+					{...(this.form ? { form: this.form } : {})}
 					ref={(el) => {
 						this.buttonEl = el as HTMLButtonElement;
 					}}

@@ -3,3 +3,9 @@
 @tailwind utilities;
 
 @import './tokens.css';
+
+:host {
+	box-sizing: border-box;
+	display: block;
+	font-family: var(--dv-font-sans, sans-serif);
+}

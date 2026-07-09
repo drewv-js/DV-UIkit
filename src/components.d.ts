@@ -5,8 +5,6 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { ButtonVariant } from "./components/button/button";
-export { ButtonVariant } from "./components/button/button";
 export namespace Components {
     interface DvButton {
         /**
@@ -18,6 +16,11 @@ export namespace Components {
           * Associates the button with a form by id when rendered outside the form.
          */
         "form"?: string;
+        /**
+          * Expands the button to fill the full width of its container.
+          * @default false
+         */
+        "fullWidth": boolean;
         /**
           * Fallback label content when slot is empty.
           * @default 'Button'
@@ -36,7 +39,7 @@ export namespace Components {
           * The visual style variant of the button.
           * @default 'primary'
          */
-        "variant": ButtonVariant;
+        "variant"?: 'primary' | 'secondary' | 'text';
     }
     interface DvCard {
         /**
@@ -75,6 +78,11 @@ declare namespace LocalJSX {
          */
         "form"?: string;
         /**
+          * Expands the button to fill the full width of its container.
+          * @default false
+         */
+        "fullWidth"?: boolean;
+        /**
           * Fallback label content when slot is empty.
           * @default 'Button'
          */
@@ -88,7 +96,7 @@ declare namespace LocalJSX {
           * The visual style variant of the button.
           * @default 'primary'
          */
-        "variant"?: ButtonVariant;
+        "variant"?: 'primary' | 'secondary' | 'text';
     }
     interface DvCard {
         /**
@@ -98,8 +106,9 @@ declare namespace LocalJSX {
     }
 
     interface DvButtonAttributes {
-        "variant": ButtonVariant;
+        "variant": 'primary' | 'secondary' | 'text';
         "disabled": boolean;
+        "fullWidth": boolean;
         "type": 'button' | 'submit' | 'reset';
         "label": string;
         "form": string;
