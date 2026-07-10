@@ -5,12 +5,14 @@ All components must follow this folder pattern:
 - `src/components/<name>/<name>.tsx`
 - `src/components/<name>/<name>.scss`
 - `src/components/<name>/<name>.spec.tsx`
+- `src/components/<name>/<name>.stories.ts`
 
 Example:
 
 - `src/components/button/button.tsx`
 - `src/components/button/button.scss`
 - `src/components/button/button.spec.tsx`
+- `src/components/button/button.stories.ts`
 
 ## Why this standard
 
@@ -29,6 +31,7 @@ This generates:
 - `src/components/badge/badge.tsx`
 - `src/components/badge/badge.scss`
 - `src/components/badge/badge.spec.tsx`
+- `src/components/badge/badge.stories.ts`
 
 ## Validate structure
 

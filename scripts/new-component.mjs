@@ -43,4 +43,9 @@ writeFileSync(
   `import { newSpecPage } from '@stencil/core/testing';\nimport { ${className} } from './${name}';\n\ndescribe('dv-${name}', () => {\n  it('renders', async () => {\n    const page = await newSpecPage({\n      components: [${className}],\n      html: '<dv-${name}></dv-${name}>'\n    });\n\n    expect(page.root).toBeTruthy();\n  });\n});\n`
 );
 
+writeFileSync(
+  join(dir, `${name}.stories.ts`),
+  `import type { Meta, StoryObj } from '@storybook/web-components-vite';\n\ntype ${className}Args = {\n  label: string;\n};\n\nconst meta: Meta<${className}Args> = {\n  title: 'Components/${className.replace('Dv', '')}',\n  tags: ['autodocs'],\n  argTypes: {\n    label: { control: 'text' }\n  },\n  args: {\n    label: '${className}'\n  },\n  render: ({ label }) => \`<dv-${name} label=\"\${label}\"></dv-${name}>\`\n};\n\nexport default meta;\n\ntype Story = StoryObj<${className}Args>;\n\nexport const Default: Story = {\n  args: {}\n};\n`
+);
+
 console.log(`Created component scaffold at src/components/${name}`);
