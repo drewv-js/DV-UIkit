@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "Private reusable Web Component kit with Tailwind-based design tokens and React wrappers.",
   "type": "module",
-  "main": "./dist/components/index.js",
+  "main": "./dist/index.cjs.js",
   "module": "./dist/components/index.js",
   "types": "./dist/components/index.d.ts",
   "sideEffects": [

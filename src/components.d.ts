@@ -6,6 +6,12 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
+    interface DvAppBar {
+        /**
+          * @default 'DvAppBar'
+         */
+        "label": string;
+    }
     interface DvButton {
         /**
           * Disables the button, preventing user interaction.
@@ -49,6 +55,12 @@ export namespace Components {
     }
 }
 declare global {
+    interface HTMLDvAppBarElement extends Components.DvAppBar, HTMLStencilElement {
+    }
+    var HTMLDvAppBarElement: {
+        prototype: HTMLDvAppBarElement;
+        new (): HTMLDvAppBarElement;
+    };
     interface HTMLDvButtonElement extends Components.DvButton, HTMLStencilElement {
     }
     var HTMLDvButtonElement: {
@@ -62,11 +74,18 @@ declare global {
         new (): HTMLDvCardElement;
     };
     interface HTMLElementTagNameMap {
+        "dv-app-bar": HTMLDvAppBarElement;
         "dv-button": HTMLDvButtonElement;
         "dv-card": HTMLDvCardElement;
     }
 }
 declare namespace LocalJSX {
+    interface DvAppBar {
+        /**
+          * @default 'DvAppBar'
+         */
+        "label"?: string;
+    }
     interface DvButton {
         /**
           * Disables the button, preventing user interaction.
@@ -105,6 +124,9 @@ declare namespace LocalJSX {
         "heading"?: string;
     }
 
+    interface DvAppBarAttributes {
+        "label": string;
+    }
     interface DvButtonAttributes {
         "variant": 'primary' | 'secondary' | 'text';
         "disabled": boolean;
@@ -118,6 +140,7 @@ declare namespace LocalJSX {
     }
 
     interface IntrinsicElements {
+        "dv-app-bar": Omit<DvAppBar, keyof DvAppBarAttributes> & { [K in keyof DvAppBar & keyof DvAppBarAttributes]?: DvAppBar[K] } & { [K in keyof DvAppBar & keyof DvAppBarAttributes as `attr:${K}`]?: DvAppBarAttributes[K] } & { [K in keyof DvAppBar & keyof DvAppBarAttributes as `prop:${K}`]?: DvAppBar[K] };
         "dv-button": Omit<DvButton, keyof DvButtonAttributes> & { [K in keyof DvButton & keyof DvButtonAttributes]?: DvButton[K] } & { [K in keyof DvButton & keyof DvButtonAttributes as `attr:${K}`]?: DvButtonAttributes[K] } & { [K in keyof DvButton & keyof DvButtonAttributes as `prop:${K}`]?: DvButton[K] };
         "dv-card": Omit<DvCard, keyof DvCardAttributes> & { [K in keyof DvCard & keyof DvCardAttributes]?: DvCard[K] } & { [K in keyof DvCard & keyof DvCardAttributes as `attr:${K}`]?: DvCardAttributes[K] } & { [K in keyof DvCard & keyof DvCardAttributes as `prop:${K}`]?: DvCard[K] };
     }
@@ -126,6 +149,7 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "dv-app-bar": LocalJSX.IntrinsicElements["dv-app-bar"] & JSXBase.HTMLAttributes<HTMLDvAppBarElement>;
             "dv-button": LocalJSX.IntrinsicElements["dv-button"] & JSXBase.HTMLAttributes<HTMLDvButtonElement>;
             "dv-card": LocalJSX.IntrinsicElements["dv-card"] & JSXBase.HTMLAttributes<HTMLDvCardElement>;
         }

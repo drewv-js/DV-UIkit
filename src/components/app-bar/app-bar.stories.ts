@@ -2,35 +2,30 @@ import type { Meta, StoryObj } from '@storybook/web-components-vite';
 
 type AppBarArgs = {
   label: string;
-  variant: 'primary' | 'secondary' | 'danger';
-  disabled: boolean;
 };
 
 const meta: Meta<AppBarArgs> = {
-  title: 'Components/Button',
+  title: 'Components/AppBar',
   tags: ['autodocs'],
   argTypes: {
-    label: { control: 'text' },
-    variant: {
-      control: 'select',
-      options: ['primary', 'secondary', 'danger']
-    },
-    disabled: { control: 'boolean' }
+    label: { control: 'text' }
   },
   args: {
-    label: 'Button',
-    variant: 'primary',
-    disabled: false
+    label: 'My App'
   },
-  render: ({ label, variant, disabled }) =>
-    `<dv-button variant="${variant}" ${disabled ? 'disabled' : ''}>${label}</dv-button>`
+  render: ({ label }) => `<dv-app-bar label="${label}"></dv-app-bar>`
 };
 
 export default meta;
 
 type Story = StoryObj<AppBarArgs>;
 
-export const Primary: Story = {
+export const Default: Story = {
+  args: {}
+};
+
+export const CustomLabel: Story = {
   args: {
+    label: 'Custom Title'
   }
 };
