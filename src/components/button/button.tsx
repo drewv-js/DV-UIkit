@@ -50,7 +50,7 @@ export class DvButton {
 	/** @private */
 	render() {
 		const baseClasses =
-			'inline-flex w-auto max-w-full items-center justify-center gap-2 rounded-radius-lg border px-4 py-2 text-sm font-medium transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2';
+			'inline-flex w-auto max-w-full items-center justify-center gap-2 rounded-md border px-4 py-2 text-sm font-medium transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2';
 
 		const variantClasses = {
 			primary: 'border-blue-600 bg-blue-600 text-white hover:bg-blue-700 focus-visible:ring-blue-600',

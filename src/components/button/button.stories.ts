@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/web-components-vite';
 
 type ButtonArgs = {
   label: string;
-  variant: 'primary' | 'secondary' | 'danger';
+  variant: 'primary' | 'secondary' | 'text';
   disabled: boolean;
 };
 
@@ -13,7 +13,7 @@ const meta: Meta<ButtonArgs> = {
     label: { control: 'text' },
     variant: {
       control: 'select',
-      options: ['primary', 'secondary', 'danger']
+      options: ['primary', 'secondary', 'text']
     },
     disabled: { control: 'boolean' }
   },
@@ -44,10 +44,10 @@ export const Secondary: Story = {
   }
 };
 
-export const Danger: Story = {
+export const Text: Story = {
   args: {
-    label: 'Delete',
-    variant: 'danger'
+    label: 'Text Button',
+    variant: 'text'
   }
 };
 
