@@ -8,7 +8,13 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface DvAppBar {
         /**
-          * @default 'DvAppBar'
+          * @default ''
+         */
+        "label"?: string;
+    }
+    interface DvAvatar {
+        /**
+          * @default 'DvAvatar'
          */
         "label": string;
     }
@@ -53,6 +59,80 @@ export namespace Components {
          */
         "heading": string;
     }
+    interface DvCheckbox {
+        /**
+          * @default 'DvCheckbox'
+         */
+        "label": string;
+    }
+    interface DvDropdown {
+        /**
+          * @default 'DvDropdown'
+         */
+        "label": string;
+    }
+    interface DvFooter {
+    }
+    interface DvModal {
+        /**
+          * @default 'DvModal'
+         */
+        "label": string;
+    }
+    interface DvRadio {
+        /**
+          * @default 'DvRadio'
+         */
+        "label": string;
+    }
+    interface DvSidebar {
+        /**
+          * @default 'DvSidebar'
+         */
+        "label": string;
+    }
+    interface DvSidebarItem {
+        /**
+          * @default 'DvSidebarItem'
+         */
+        "label": string;
+    }
+    interface DvSkeleton {
+        /**
+          * @default 'DvSkeleton'
+         */
+        "label": string;
+    }
+    interface DvTab {
+        /**
+          * @default 'DvTab'
+         */
+        "label": string;
+    }
+    interface DvTabGroup {
+        /**
+          * @default 'DvTabGroup'
+         */
+        "label": string;
+    }
+    interface DvTextarea {
+        /**
+          * @default 'DvTextarea'
+         */
+        "label": string;
+    }
+    interface DvTextfield {
+        /**
+          * @default 'DvTextfield'
+         */
+        "label": string;
+    }
+    interface DvToggle {
+        /**
+          * @default 'DvToggle'
+         */
+        "label": string;
+    }
 }
 declare global {
     interface HTMLDvAppBarElement extends Components.DvAppBar, HTMLStencilElement {
@@ -60,6 +140,12 @@ declare global {
     var HTMLDvAppBarElement: {
         prototype: HTMLDvAppBarElement;
         new (): HTMLDvAppBarElement;
+    };
+    interface HTMLDvAvatarElement extends Components.DvAvatar, HTMLStencilElement {
+    }
+    var HTMLDvAvatarElement: {
+        prototype: HTMLDvAvatarElement;
+        new (): HTMLDvAvatarElement;
     };
     interface HTMLDvButtonElement extends Components.DvButton, HTMLStencilElement {
     }
@@ -73,16 +159,114 @@ declare global {
         prototype: HTMLDvCardElement;
         new (): HTMLDvCardElement;
     };
+    interface HTMLDvCheckboxElement extends Components.DvCheckbox, HTMLStencilElement {
+    }
+    var HTMLDvCheckboxElement: {
+        prototype: HTMLDvCheckboxElement;
+        new (): HTMLDvCheckboxElement;
+    };
+    interface HTMLDvDropdownElement extends Components.DvDropdown, HTMLStencilElement {
+    }
+    var HTMLDvDropdownElement: {
+        prototype: HTMLDvDropdownElement;
+        new (): HTMLDvDropdownElement;
+    };
+    interface HTMLDvFooterElement extends Components.DvFooter, HTMLStencilElement {
+    }
+    var HTMLDvFooterElement: {
+        prototype: HTMLDvFooterElement;
+        new (): HTMLDvFooterElement;
+    };
+    interface HTMLDvModalElement extends Components.DvModal, HTMLStencilElement {
+    }
+    var HTMLDvModalElement: {
+        prototype: HTMLDvModalElement;
+        new (): HTMLDvModalElement;
+    };
+    interface HTMLDvRadioElement extends Components.DvRadio, HTMLStencilElement {
+    }
+    var HTMLDvRadioElement: {
+        prototype: HTMLDvRadioElement;
+        new (): HTMLDvRadioElement;
+    };
+    interface HTMLDvSidebarElement extends Components.DvSidebar, HTMLStencilElement {
+    }
+    var HTMLDvSidebarElement: {
+        prototype: HTMLDvSidebarElement;
+        new (): HTMLDvSidebarElement;
+    };
+    interface HTMLDvSidebarItemElement extends Components.DvSidebarItem, HTMLStencilElement {
+    }
+    var HTMLDvSidebarItemElement: {
+        prototype: HTMLDvSidebarItemElement;
+        new (): HTMLDvSidebarItemElement;
+    };
+    interface HTMLDvSkeletonElement extends Components.DvSkeleton, HTMLStencilElement {
+    }
+    var HTMLDvSkeletonElement: {
+        prototype: HTMLDvSkeletonElement;
+        new (): HTMLDvSkeletonElement;
+    };
+    interface HTMLDvTabElement extends Components.DvTab, HTMLStencilElement {
+    }
+    var HTMLDvTabElement: {
+        prototype: HTMLDvTabElement;
+        new (): HTMLDvTabElement;
+    };
+    interface HTMLDvTabGroupElement extends Components.DvTabGroup, HTMLStencilElement {
+    }
+    var HTMLDvTabGroupElement: {
+        prototype: HTMLDvTabGroupElement;
+        new (): HTMLDvTabGroupElement;
+    };
+    interface HTMLDvTextareaElement extends Components.DvTextarea, HTMLStencilElement {
+    }
+    var HTMLDvTextareaElement: {
+        prototype: HTMLDvTextareaElement;
+        new (): HTMLDvTextareaElement;
+    };
+    interface HTMLDvTextfieldElement extends Components.DvTextfield, HTMLStencilElement {
+    }
+    var HTMLDvTextfieldElement: {
+        prototype: HTMLDvTextfieldElement;
+        new (): HTMLDvTextfieldElement;
+    };
+    interface HTMLDvToggleElement extends Components.DvToggle, HTMLStencilElement {
+    }
+    var HTMLDvToggleElement: {
+        prototype: HTMLDvToggleElement;
+        new (): HTMLDvToggleElement;
+    };
     interface HTMLElementTagNameMap {
         "dv-app-bar": HTMLDvAppBarElement;
+        "dv-avatar": HTMLDvAvatarElement;
         "dv-button": HTMLDvButtonElement;
         "dv-card": HTMLDvCardElement;
+        "dv-checkbox": HTMLDvCheckboxElement;
+        "dv-dropdown": HTMLDvDropdownElement;
+        "dv-footer": HTMLDvFooterElement;
+        "dv-modal": HTMLDvModalElement;
+        "dv-radio": HTMLDvRadioElement;
+        "dv-sidebar": HTMLDvSidebarElement;
+        "dv-sidebar-item": HTMLDvSidebarItemElement;
+        "dv-skeleton": HTMLDvSkeletonElement;
+        "dv-tab": HTMLDvTabElement;
+        "dv-tab-group": HTMLDvTabGroupElement;
+        "dv-textarea": HTMLDvTextareaElement;
+        "dv-textfield": HTMLDvTextfieldElement;
+        "dv-toggle": HTMLDvToggleElement;
     }
 }
 declare namespace LocalJSX {
     interface DvAppBar {
         /**
-          * @default 'DvAppBar'
+          * @default ''
+         */
+        "label"?: string;
+    }
+    interface DvAvatar {
+        /**
+          * @default 'DvAvatar'
          */
         "label"?: string;
     }
@@ -123,8 +307,85 @@ declare namespace LocalJSX {
          */
         "heading"?: string;
     }
+    interface DvCheckbox {
+        /**
+          * @default 'DvCheckbox'
+         */
+        "label"?: string;
+    }
+    interface DvDropdown {
+        /**
+          * @default 'DvDropdown'
+         */
+        "label"?: string;
+    }
+    interface DvFooter {
+    }
+    interface DvModal {
+        /**
+          * @default 'DvModal'
+         */
+        "label"?: string;
+    }
+    interface DvRadio {
+        /**
+          * @default 'DvRadio'
+         */
+        "label"?: string;
+    }
+    interface DvSidebar {
+        /**
+          * @default 'DvSidebar'
+         */
+        "label"?: string;
+    }
+    interface DvSidebarItem {
+        /**
+          * @default 'DvSidebarItem'
+         */
+        "label"?: string;
+    }
+    interface DvSkeleton {
+        /**
+          * @default 'DvSkeleton'
+         */
+        "label"?: string;
+    }
+    interface DvTab {
+        /**
+          * @default 'DvTab'
+         */
+        "label"?: string;
+    }
+    interface DvTabGroup {
+        /**
+          * @default 'DvTabGroup'
+         */
+        "label"?: string;
+    }
+    interface DvTextarea {
+        /**
+          * @default 'DvTextarea'
+         */
+        "label"?: string;
+    }
+    interface DvTextfield {
+        /**
+          * @default 'DvTextfield'
+         */
+        "label"?: string;
+    }
+    interface DvToggle {
+        /**
+          * @default 'DvToggle'
+         */
+        "label"?: string;
+    }
 
     interface DvAppBarAttributes {
+        "label": string;
+    }
+    interface DvAvatarAttributes {
         "label": string;
     }
     interface DvButtonAttributes {
@@ -138,11 +399,61 @@ declare namespace LocalJSX {
     interface DvCardAttributes {
         "heading": string;
     }
+    interface DvCheckboxAttributes {
+        "label": string;
+    }
+    interface DvDropdownAttributes {
+        "label": string;
+    }
+    interface DvModalAttributes {
+        "label": string;
+    }
+    interface DvRadioAttributes {
+        "label": string;
+    }
+    interface DvSidebarAttributes {
+        "label": string;
+    }
+    interface DvSidebarItemAttributes {
+        "label": string;
+    }
+    interface DvSkeletonAttributes {
+        "label": string;
+    }
+    interface DvTabAttributes {
+        "label": string;
+    }
+    interface DvTabGroupAttributes {
+        "label": string;
+    }
+    interface DvTextareaAttributes {
+        "label": string;
+    }
+    interface DvTextfieldAttributes {
+        "label": string;
+    }
+    interface DvToggleAttributes {
+        "label": string;
+    }
 
     interface IntrinsicElements {
         "dv-app-bar": Omit<DvAppBar, keyof DvAppBarAttributes> & { [K in keyof DvAppBar & keyof DvAppBarAttributes]?: DvAppBar[K] } & { [K in keyof DvAppBar & keyof DvAppBarAttributes as `attr:${K}`]?: DvAppBarAttributes[K] } & { [K in keyof DvAppBar & keyof DvAppBarAttributes as `prop:${K}`]?: DvAppBar[K] };
+        "dv-avatar": Omit<DvAvatar, keyof DvAvatarAttributes> & { [K in keyof DvAvatar & keyof DvAvatarAttributes]?: DvAvatar[K] } & { [K in keyof DvAvatar & keyof DvAvatarAttributes as `attr:${K}`]?: DvAvatarAttributes[K] } & { [K in keyof DvAvatar & keyof DvAvatarAttributes as `prop:${K}`]?: DvAvatar[K] };
         "dv-button": Omit<DvButton, keyof DvButtonAttributes> & { [K in keyof DvButton & keyof DvButtonAttributes]?: DvButton[K] } & { [K in keyof DvButton & keyof DvButtonAttributes as `attr:${K}`]?: DvButtonAttributes[K] } & { [K in keyof DvButton & keyof DvButtonAttributes as `prop:${K}`]?: DvButton[K] };
         "dv-card": Omit<DvCard, keyof DvCardAttributes> & { [K in keyof DvCard & keyof DvCardAttributes]?: DvCard[K] } & { [K in keyof DvCard & keyof DvCardAttributes as `attr:${K}`]?: DvCardAttributes[K] } & { [K in keyof DvCard & keyof DvCardAttributes as `prop:${K}`]?: DvCard[K] };
+        "dv-checkbox": Omit<DvCheckbox, keyof DvCheckboxAttributes> & { [K in keyof DvCheckbox & keyof DvCheckboxAttributes]?: DvCheckbox[K] } & { [K in keyof DvCheckbox & keyof DvCheckboxAttributes as `attr:${K}`]?: DvCheckboxAttributes[K] } & { [K in keyof DvCheckbox & keyof DvCheckboxAttributes as `prop:${K}`]?: DvCheckbox[K] };
+        "dv-dropdown": Omit<DvDropdown, keyof DvDropdownAttributes> & { [K in keyof DvDropdown & keyof DvDropdownAttributes]?: DvDropdown[K] } & { [K in keyof DvDropdown & keyof DvDropdownAttributes as `attr:${K}`]?: DvDropdownAttributes[K] } & { [K in keyof DvDropdown & keyof DvDropdownAttributes as `prop:${K}`]?: DvDropdown[K] };
+        "dv-footer": DvFooter;
+        "dv-modal": Omit<DvModal, keyof DvModalAttributes> & { [K in keyof DvModal & keyof DvModalAttributes]?: DvModal[K] } & { [K in keyof DvModal & keyof DvModalAttributes as `attr:${K}`]?: DvModalAttributes[K] } & { [K in keyof DvModal & keyof DvModalAttributes as `prop:${K}`]?: DvModal[K] };
+        "dv-radio": Omit<DvRadio, keyof DvRadioAttributes> & { [K in keyof DvRadio & keyof DvRadioAttributes]?: DvRadio[K] } & { [K in keyof DvRadio & keyof DvRadioAttributes as `attr:${K}`]?: DvRadioAttributes[K] } & { [K in keyof DvRadio & keyof DvRadioAttributes as `prop:${K}`]?: DvRadio[K] };
+        "dv-sidebar": Omit<DvSidebar, keyof DvSidebarAttributes> & { [K in keyof DvSidebar & keyof DvSidebarAttributes]?: DvSidebar[K] } & { [K in keyof DvSidebar & keyof DvSidebarAttributes as `attr:${K}`]?: DvSidebarAttributes[K] } & { [K in keyof DvSidebar & keyof DvSidebarAttributes as `prop:${K}`]?: DvSidebar[K] };
+        "dv-sidebar-item": Omit<DvSidebarItem, keyof DvSidebarItemAttributes> & { [K in keyof DvSidebarItem & keyof DvSidebarItemAttributes]?: DvSidebarItem[K] } & { [K in keyof DvSidebarItem & keyof DvSidebarItemAttributes as `attr:${K}`]?: DvSidebarItemAttributes[K] } & { [K in keyof DvSidebarItem & keyof DvSidebarItemAttributes as `prop:${K}`]?: DvSidebarItem[K] };
+        "dv-skeleton": Omit<DvSkeleton, keyof DvSkeletonAttributes> & { [K in keyof DvSkeleton & keyof DvSkeletonAttributes]?: DvSkeleton[K] } & { [K in keyof DvSkeleton & keyof DvSkeletonAttributes as `attr:${K}`]?: DvSkeletonAttributes[K] } & { [K in keyof DvSkeleton & keyof DvSkeletonAttributes as `prop:${K}`]?: DvSkeleton[K] };
+        "dv-tab": Omit<DvTab, keyof DvTabAttributes> & { [K in keyof DvTab & keyof DvTabAttributes]?: DvTab[K] } & { [K in keyof DvTab & keyof DvTabAttributes as `attr:${K}`]?: DvTabAttributes[K] } & { [K in keyof DvTab & keyof DvTabAttributes as `prop:${K}`]?: DvTab[K] };
+        "dv-tab-group": Omit<DvTabGroup, keyof DvTabGroupAttributes> & { [K in keyof DvTabGroup & keyof DvTabGroupAttributes]?: DvTabGroup[K] } & { [K in keyof DvTabGroup & keyof DvTabGroupAttributes as `attr:${K}`]?: DvTabGroupAttributes[K] } & { [K in keyof DvTabGroup & keyof DvTabGroupAttributes as `prop:${K}`]?: DvTabGroup[K] };
+        "dv-textarea": Omit<DvTextarea, keyof DvTextareaAttributes> & { [K in keyof DvTextarea & keyof DvTextareaAttributes]?: DvTextarea[K] } & { [K in keyof DvTextarea & keyof DvTextareaAttributes as `attr:${K}`]?: DvTextareaAttributes[K] } & { [K in keyof DvTextarea & keyof DvTextareaAttributes as `prop:${K}`]?: DvTextarea[K] };
+        "dv-textfield": Omit<DvTextfield, keyof DvTextfieldAttributes> & { [K in keyof DvTextfield & keyof DvTextfieldAttributes]?: DvTextfield[K] } & { [K in keyof DvTextfield & keyof DvTextfieldAttributes as `attr:${K}`]?: DvTextfieldAttributes[K] } & { [K in keyof DvTextfield & keyof DvTextfieldAttributes as `prop:${K}`]?: DvTextfield[K] };
+        "dv-toggle": Omit<DvToggle, keyof DvToggleAttributes> & { [K in keyof DvToggle & keyof DvToggleAttributes]?: DvToggle[K] } & { [K in keyof DvToggle & keyof DvToggleAttributes as `attr:${K}`]?: DvToggleAttributes[K] } & { [K in keyof DvToggle & keyof DvToggleAttributes as `prop:${K}`]?: DvToggle[K] };
     }
 }
 export { LocalJSX as JSX };
@@ -150,8 +461,22 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "dv-app-bar": LocalJSX.IntrinsicElements["dv-app-bar"] & JSXBase.HTMLAttributes<HTMLDvAppBarElement>;
+            "dv-avatar": LocalJSX.IntrinsicElements["dv-avatar"] & JSXBase.HTMLAttributes<HTMLDvAvatarElement>;
             "dv-button": LocalJSX.IntrinsicElements["dv-button"] & JSXBase.HTMLAttributes<HTMLDvButtonElement>;
             "dv-card": LocalJSX.IntrinsicElements["dv-card"] & JSXBase.HTMLAttributes<HTMLDvCardElement>;
+            "dv-checkbox": LocalJSX.IntrinsicElements["dv-checkbox"] & JSXBase.HTMLAttributes<HTMLDvCheckboxElement>;
+            "dv-dropdown": LocalJSX.IntrinsicElements["dv-dropdown"] & JSXBase.HTMLAttributes<HTMLDvDropdownElement>;
+            "dv-footer": LocalJSX.IntrinsicElements["dv-footer"] & JSXBase.HTMLAttributes<HTMLDvFooterElement>;
+            "dv-modal": LocalJSX.IntrinsicElements["dv-modal"] & JSXBase.HTMLAttributes<HTMLDvModalElement>;
+            "dv-radio": LocalJSX.IntrinsicElements["dv-radio"] & JSXBase.HTMLAttributes<HTMLDvRadioElement>;
+            "dv-sidebar": LocalJSX.IntrinsicElements["dv-sidebar"] & JSXBase.HTMLAttributes<HTMLDvSidebarElement>;
+            "dv-sidebar-item": LocalJSX.IntrinsicElements["dv-sidebar-item"] & JSXBase.HTMLAttributes<HTMLDvSidebarItemElement>;
+            "dv-skeleton": LocalJSX.IntrinsicElements["dv-skeleton"] & JSXBase.HTMLAttributes<HTMLDvSkeletonElement>;
+            "dv-tab": LocalJSX.IntrinsicElements["dv-tab"] & JSXBase.HTMLAttributes<HTMLDvTabElement>;
+            "dv-tab-group": LocalJSX.IntrinsicElements["dv-tab-group"] & JSXBase.HTMLAttributes<HTMLDvTabGroupElement>;
+            "dv-textarea": LocalJSX.IntrinsicElements["dv-textarea"] & JSXBase.HTMLAttributes<HTMLDvTextareaElement>;
+            "dv-textfield": LocalJSX.IntrinsicElements["dv-textfield"] & JSXBase.HTMLAttributes<HTMLDvTextfieldElement>;
+            "dv-toggle": LocalJSX.IntrinsicElements["dv-toggle"] & JSXBase.HTMLAttributes<HTMLDvToggleElement>;
         }
     }
 }

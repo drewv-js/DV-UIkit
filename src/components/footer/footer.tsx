@@ -1,4 +1,4 @@
-import { Component, h, Host, Prop } from '@stencil/core';
+import { Component, h, Host } from '@stencil/core';
 
 @Component({
   tag: 'dv-footer',
@@ -6,14 +6,18 @@ import { Component, h, Host, Prop } from '@stencil/core';
   shadow: true
 })
 export class DvFooter {
-  @Prop({ reflect: true })
-  label = 'DvFooter';
-
-  render() {
-    return (
-      <Host>
-        <slot>{this.label}</slot>
-      </Host>
-    );
-  }
+	/** @private */
+	render() {
+		return (
+			<Host>
+				<footer>
+					<div class="p-6 bg-neutral-50 border-t border-neutral-200">
+						<div class="flex justify-between text-sm text-neutral-500">
+							<slot></slot>
+						</div>
+					</div>
+				</footer>
+			</Host>
+		);
+	}
 }
