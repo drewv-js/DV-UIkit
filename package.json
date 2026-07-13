@@ -50,7 +50,7 @@
     "component:check": "node ./scripts/validate-components.mjs",
     "storybook:prepare": "npm run build:styles && npm run build:stencil",
     "storybook": "npm run storybook:prepare && storybook dev -p 6006",
-    "storybook:build": "npm run storybook:prepare && storybook build",
+    "storybook:build": "npm run storybook:prepare && storybook build -o .artifacts/storybook-static",
     "test": "stencil test --spec",
     "audit": "npm audit --omit=dev",
     "prepublishOnly": "npm run lint && npm run test && npm run build",
@@ -90,6 +90,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.39.4",
+    "@storybook/addon-docs": "^10.5.0",
     "@storybook/web-components-vite": "^10.4.6",
     "@types/jest": "^29.5.14",
     "@types/react": "^19.2.17",

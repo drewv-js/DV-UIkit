@@ -1,6 +1,11 @@
 import { Component, Element, h, Host, Method, Prop } from '@stencil/core';
 import { submitForm } from '../../internal/forms';
 
+/**
+ * Action button with visual variants and native form behaviors.
+ *
+ * @slot - Button label content. Falls back to the `label` prop when empty.
+ */
 @Component({
 	tag: 'dv-button',
 	shadow: true

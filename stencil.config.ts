@@ -10,6 +10,10 @@ export const config: Config = {
       esmLoaderPath: 'loader'
     },
     {
+      type: 'docs-json',
+      file: 'dist/custom-elements.json'
+    },
+    {
       type: 'dist-custom-elements',
       customElementsExportBehavior: 'single-export-module',
       generateTypeDeclarations: true

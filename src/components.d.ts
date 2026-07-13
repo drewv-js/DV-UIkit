@@ -6,8 +6,12 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
+    /**
+     * Top application bar with named slots for left, center, and right content.
+     */
     interface DvAppBar {
         /**
+          * Accessible label applied to the header landmark.
           * @default ''
          */
         "label"?: string;
@@ -18,6 +22,9 @@ export namespace Components {
          */
         "label": string;
     }
+    /**
+     * Action button with visual variants and native form behaviors.
+     */
     interface DvButton {
         /**
           * Disables the button, preventing user interaction.
@@ -71,6 +78,9 @@ export namespace Components {
          */
         "label": string;
     }
+    /**
+     * Bottom page container for legal text, metadata, and secondary links.
+     */
     interface DvFooter {
     }
     interface DvModal {
@@ -127,14 +137,45 @@ export namespace Components {
          */
         "label": string;
     }
+    /**
+     * Binary on/off control rendered as a switch.
+     */
     interface DvToggle {
         /**
+          * Whether the toggle is currently on.
+          * @default false
+         */
+        "checked": boolean;
+        /**
+          * Disables interaction when true.
+          * @default false
+         */
+        "disabled": boolean;
+        /**
+          * Visible label text used when no slotted content is provided.
           * @default 'DvToggle'
          */
         "label": string;
+        /**
+          * Name attribute forwarded to the internal checkbox input.
+          * @default 'dv-toggle'
+         */
+        "name": string;
+        /**
+          * Value submitted when used in a native form and checked.
+          * @default 'on'
+         */
+        "value": string;
     }
 }
+export interface DvToggleCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLDvToggleElement;
+}
 declare global {
+    /**
+     * Top application bar with named slots for left, center, and right content.
+     */
     interface HTMLDvAppBarElement extends Components.DvAppBar, HTMLStencilElement {
     }
     var HTMLDvAppBarElement: {
@@ -147,6 +188,9 @@ declare global {
         prototype: HTMLDvAvatarElement;
         new (): HTMLDvAvatarElement;
     };
+    /**
+     * Action button with visual variants and native form behaviors.
+     */
     interface HTMLDvButtonElement extends Components.DvButton, HTMLStencilElement {
     }
     var HTMLDvButtonElement: {
@@ -171,6 +215,9 @@ declare global {
         prototype: HTMLDvDropdownElement;
         new (): HTMLDvDropdownElement;
     };
+    /**
+     * Bottom page container for legal text, metadata, and secondary links.
+     */
     interface HTMLDvFooterElement extends Components.DvFooter, HTMLStencilElement {
     }
     var HTMLDvFooterElement: {
@@ -231,7 +278,21 @@ declare global {
         prototype: HTMLDvTextfieldElement;
         new (): HTMLDvTextfieldElement;
     };
+    interface HTMLDvToggleElementEventMap {
+        "dvChange": boolean;
+    }
+    /**
+     * Binary on/off control rendered as a switch.
+     */
     interface HTMLDvToggleElement extends Components.DvToggle, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLDvToggleElementEventMap>(type: K, listener: (this: HTMLDvToggleElement, ev: DvToggleCustomEvent<HTMLDvToggleElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLDvToggleElementEventMap>(type: K, listener: (this: HTMLDvToggleElement, ev: DvToggleCustomEvent<HTMLDvToggleElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLDvToggleElement: {
         prototype: HTMLDvToggleElement;
@@ -258,8 +319,12 @@ declare global {
     }
 }
 declare namespace LocalJSX {
+    /**
+     * Top application bar with named slots for left, center, and right content.
+     */
     interface DvAppBar {
         /**
+          * Accessible label applied to the header landmark.
           * @default ''
          */
         "label"?: string;
@@ -270,6 +335,9 @@ declare namespace LocalJSX {
          */
         "label"?: string;
     }
+    /**
+     * Action button with visual variants and native form behaviors.
+     */
     interface DvButton {
         /**
           * Disables the button, preventing user interaction.
@@ -319,6 +387,9 @@ declare namespace LocalJSX {
          */
         "label"?: string;
     }
+    /**
+     * Bottom page container for legal text, metadata, and secondary links.
+     */
     interface DvFooter {
     }
     interface DvModal {
@@ -375,11 +446,39 @@ declare namespace LocalJSX {
          */
         "label"?: string;
     }
+    /**
+     * Binary on/off control rendered as a switch.
+     */
     interface DvToggle {
         /**
+          * Whether the toggle is currently on.
+          * @default false
+         */
+        "checked"?: boolean;
+        /**
+          * Disables interaction when true.
+          * @default false
+         */
+        "disabled"?: boolean;
+        /**
+          * Visible label text used when no slotted content is provided.
           * @default 'DvToggle'
          */
         "label"?: string;
+        /**
+          * Name attribute forwarded to the internal checkbox input.
+          * @default 'dv-toggle'
+         */
+        "name"?: string;
+        /**
+          * Emits when the checked state changes due to user interaction.
+         */
+        "onDvChange"?: (event: DvToggleCustomEvent<boolean>) => void;
+        /**
+          * Value submitted when used in a native form and checked.
+          * @default 'on'
+         */
+        "value"?: string;
     }
 
     interface DvAppBarAttributes {
@@ -434,6 +533,10 @@ declare namespace LocalJSX {
     }
     interface DvToggleAttributes {
         "label": string;
+        "checked": boolean;
+        "disabled": boolean;
+        "name": string;
+        "value": string;
     }
 
     interface IntrinsicElements {
@@ -460,12 +563,21 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            /**
+             * Top application bar with named slots for left, center, and right content.
+             */
             "dv-app-bar": LocalJSX.IntrinsicElements["dv-app-bar"] & JSXBase.HTMLAttributes<HTMLDvAppBarElement>;
             "dv-avatar": LocalJSX.IntrinsicElements["dv-avatar"] & JSXBase.HTMLAttributes<HTMLDvAvatarElement>;
+            /**
+             * Action button with visual variants and native form behaviors.
+             */
             "dv-button": LocalJSX.IntrinsicElements["dv-button"] & JSXBase.HTMLAttributes<HTMLDvButtonElement>;
             "dv-card": LocalJSX.IntrinsicElements["dv-card"] & JSXBase.HTMLAttributes<HTMLDvCardElement>;
             "dv-checkbox": LocalJSX.IntrinsicElements["dv-checkbox"] & JSXBase.HTMLAttributes<HTMLDvCheckboxElement>;
             "dv-dropdown": LocalJSX.IntrinsicElements["dv-dropdown"] & JSXBase.HTMLAttributes<HTMLDvDropdownElement>;
+            /**
+             * Bottom page container for legal text, metadata, and secondary links.
+             */
             "dv-footer": LocalJSX.IntrinsicElements["dv-footer"] & JSXBase.HTMLAttributes<HTMLDvFooterElement>;
             "dv-modal": LocalJSX.IntrinsicElements["dv-modal"] & JSXBase.HTMLAttributes<HTMLDvModalElement>;
             "dv-radio": LocalJSX.IntrinsicElements["dv-radio"] & JSXBase.HTMLAttributes<HTMLDvRadioElement>;
@@ -476,6 +588,9 @@ declare module "@stencil/core" {
             "dv-tab-group": LocalJSX.IntrinsicElements["dv-tab-group"] & JSXBase.HTMLAttributes<HTMLDvTabGroupElement>;
             "dv-textarea": LocalJSX.IntrinsicElements["dv-textarea"] & JSXBase.HTMLAttributes<HTMLDvTextareaElement>;
             "dv-textfield": LocalJSX.IntrinsicElements["dv-textfield"] & JSXBase.HTMLAttributes<HTMLDvTextfieldElement>;
+            /**
+             * Binary on/off control rendered as a switch.
+             */
             "dv-toggle": LocalJSX.IntrinsicElements["dv-toggle"] & JSXBase.HTMLAttributes<HTMLDvToggleElement>;
         }
     }

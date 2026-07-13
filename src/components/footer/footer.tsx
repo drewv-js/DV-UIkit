@@ -1,5 +1,10 @@
 import { Component, h, Host } from '@stencil/core';
 
+/**
+ * Bottom page container for legal text, metadata, and secondary links.
+ *
+ * @slot - Footer content rendered in a two-column flex layout.
+ */
 @Component({
   tag: 'dv-footer',
   styleUrl: 'footer.scss',

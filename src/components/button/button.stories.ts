@@ -8,14 +8,22 @@ type ButtonArgs = {
 
 const meta: Meta<ButtonArgs> = {
   title: 'Components/Button',
+  component: 'dv-button',
   tags: ['autodocs'],
   argTypes: {
-    label: { control: 'text' },
+    label: {
+      control: 'text',
+      description: 'Visible text content shown inside the button.'
+    },
     variant: {
       control: 'select',
-      options: ['primary', 'secondary', 'text']
+      options: ['primary', 'secondary', 'text'],
+      description: 'Visual emphasis style of the button.'
     },
-    disabled: { control: 'boolean' }
+    disabled: {
+      control: 'boolean',
+      description: 'Disables interactions and updates visual state.'
+    }
   },
   args: {
     label: 'Button',
@@ -34,6 +42,13 @@ export const Primary: Story = {
   args: {
     label: 'Save',
     variant: 'primary'
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: 'High-emphasis action used for the main task on a screen.'
+      }
+    }
   }
 };
 
@@ -41,6 +56,13 @@ export const Secondary: Story = {
   args: {
     label: 'Cancel',
     variant: 'secondary'
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Medium-emphasis action used alongside a primary action.'
+      }
+    }
   }
 };
 
@@ -48,6 +70,13 @@ export const Text: Story = {
   args: {
     label: 'Text Button',
     variant: 'text'
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Low-emphasis action used for optional or tertiary interactions.'
+      }
+    }
   }
 };
 
@@ -56,5 +85,12 @@ export const Disabled: Story = {
     label: 'Disabled',
     variant: 'primary',
     disabled: true
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Disabled state showing non-interactive behavior and reduced visual prominence.'
+      }
+    }
   }
 };
