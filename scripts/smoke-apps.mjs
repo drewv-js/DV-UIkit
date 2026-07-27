@@ -14,8 +14,8 @@ const run = (command, cwd) => {
 for (const appName of apps) {
   const appDir = resolve(rootDir, 'apps', appName);
   console.log(`\n==> smoke app: ${appName}`);
-  run('npm install --no-audit --no-fund', appDir);
-  run('npm run build', appDir);
+  run('pnpm install --frozen-lockfile', appDir);
+  run('pnpm run build', appDir);
 }
 
 console.log('\nAll consumer app smoke builds passed.');
