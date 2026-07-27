@@ -1,0 +1,13 @@
+:host {
+	display: contents;
+}
+
+.hover-bridge {
+	clip-path: polygon(
+		var(--hover-bridge-top-left-x, 0) var(--hover-bridge-top-left-y, 0),
+		var(--hover-bridge-top-right-x, 0) var(--hover-bridge-top-right-y, 0),
+		var(--hover-bridge-bottom-right-x, 0) var(--hover-bridge-bottom-right-y, 0),
+		var(--hover-bridge-bottom-left-x, 0) var(--hover-bridge-bottom-left-y, 0)
+	);
+}
+

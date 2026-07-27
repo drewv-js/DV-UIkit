@@ -1,0 +1,31 @@
+:host {
+	display: flex;
+	max-height: 100%;
+}
+
+.carousel {
+	grid-template-areas:
+		'. slides .'
+		'. pagination .';
+}
+
+.slides {
+	grid-area: slides;
+}
+
+.pagination {
+	grid-area: pagination;
+}
+
+/* Tailwind through v4 does not support scrollbar-width
+	 without the use of a custom utility class, so it must
+	 be styled in the CSS directly 
+*/
+.scrollbar-hidden {
+	scrollbar-width: none;
+}
+
+.scrollbar-hidden::-webkit-scrollbar {
+	display: none;
+}
+

@@ -1,0 +1,27 @@
+@import '../../../design-tokens/build/css/dv-tokens.css';
+
+:root {
+	--dv-theme-color-background-default: var(--dv-color-surface-strong);
+	--dv-theme-color-background-default-hover: color-mix(in oklab, var(--dv-color-surface-strong) 88%, white);
+	--dv-theme-color-background-default-active: color-mix(in oklab, var(--dv-color-surface-strong) 80%, white);
+	--dv-theme-color-background-subtle: var(--dv-color-surface);
+	--dv-theme-color-content-default: var(--dv-color-text);
+	--dv-theme-color-content-subtle: var(--dv-color-text-muted);
+	--dv-theme-color-content-brand: var(--dv-color-brand);
+	--dv-theme-color-border-default: var(--dv-color-border);
+	--dv-theme-color-border-brand: var(--dv-color-brand);
+	--dv-theme-form-color-border-default: var(--dv-color-border);
+	--dv-theme-form-color-background-default: var(--dv-color-surface-strong);
+	--dv-theme-focus-ring-color-border-default: var(--dv-color-brand);
+	--dv-theme-focus-ring-color-border-destructive: var(--dv-color-danger);
+	--dv-theme-border-radius-sm: var(--dv-radius-sm);
+	--dv-theme-border-radius-md: var(--dv-radius-md);
+	--dv-theme-border-radius-lg: var(--dv-radius-lg);
+	--dv-theme-border-radius-rounded: var(--dv-radius-md);
+	--dv-theme-border-radius-full: 9999px;
+	--dv-theme-border-width-sm: 1px;
+	--dv-theme-border-width-md: 2px;
+	--dv-theme-border-width-lg: 3px;
+}
+
+

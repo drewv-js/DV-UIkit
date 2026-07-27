@@ -1,0 +1,10 @@
+:host {
+	display: block;
+}
+
+input[type='time']::-webkit-calendar-picker-indicator {
+	height: 16px;
+	width: 16px;
+	padding: 0;
+}
+

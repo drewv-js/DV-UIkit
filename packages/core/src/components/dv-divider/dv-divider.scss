@@ -1,0 +1,9 @@
+:host {
+	display: block;
+}
+
+:host([variant='vertical']) {
+	display: inline-block;
+	height: 100%;
+}
+

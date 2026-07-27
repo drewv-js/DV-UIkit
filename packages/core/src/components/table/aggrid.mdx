@@ -1,0 +1,34 @@
+{/* template.mdx */}
+import { Meta, Title, Primary, Controls, Stories, Markdown, Canvas, Description} from '@storybook/addon-docs/blocks';
+import * as AgGridStories from './aggrid.stories';
+
+<Meta of={AgGridStories} />
+<Title />
+--- The `dvTableTheme` provides a method `getThemeProperties` that returns an object containing the necessary theme
+properties to customize the appearance of AG Grid. The properties include:
+
+- `accentColor`: Sets the primary accent color for the grid, which is used for highlights and selections.
+- `fontFamily`: Defines the font family to be used in the grid, in this case, it utilizes the Google Font "Inter".
+- `headerFontSize`: Sets the font size for the grid headers, allowing for better readability and customization.
+
+These properties are applied to the AG Grid using the `themeQuartz.withParams(dvTableTheme.getThemeProperties())`
+method, ensuring that the grid adheres to the DV design guidelines and branding requirements.
+
+Learn more about <a href="https://www.ag-grid.com/javascript-data-grid/getting-started/" target='_blank'>AGgrid</a> and <a href="https://www.ag-grid.com/javascript-data-grid/theming-parameters/" target="_blank">Theme Parameters</a>
+
+The table theme can be imported from the DV packages:
+
+<Markdown>
+
+{`
+\`\`\`tsx
+import { dvTableTheme } from '@dv-uikit/core';
+
+const theme = themeQuartz.withParams(dvTableTheme.getThemeProperties());
+\`\`\`
+
+`}
+
+</Markdown>
+<Description />
+<Primary />

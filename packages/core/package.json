@@ -1,0 +1,64 @@
+{
+  "name": "@dv-uikit/core",
+  "version": "0.1.0",
+  "private": true,
+  "description": "DV core stencil web components package.",
+  "type": "module",
+  "main": "./dist/index.cjs.js",
+  "module": "./dist/components/index.js",
+  "types": "./dist/components/index.d.ts",
+  "sideEffects": [
+    "./dist/auto-register.js",
+    "./dist/styles.css"
+  ],
+  "files": [
+    "dist",
+    "tailwind.preset.cjs"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/components/index.d.ts",
+      "import": "./dist/components/index.js",
+      "default": "./dist/components/index.js"
+    },
+    "./auto-register": {
+      "types": "./dist/auto-register.d.ts",
+      "import": "./dist/auto-register.js",
+      "default": "./dist/auto-register.js"
+    },
+    "./react": {
+      "types": "./dist/react.d.ts",
+      "import": "./dist/react.js",
+      "default": "./dist/react.js"
+    },
+    "./styles.css": "./dist/styles.css",
+    "./tailwind-preset": "./tailwind.preset.cjs"
+  },
+  "scripts": {
+    "clean": "node -e \"const fs=require('node:fs'); fs.rmSync('dist',{recursive:true,force:true}); fs.rmSync('coverage',{recursive:true,force:true});\"",
+    "build": "npm run clean && npm run build:styles && npm run build:stencil && npm run build:styles && npm run build:auto-register && npm run build:react && npm run build:react:types",
+    "build:styles": "tailwindcss -c tailwind.config.cjs -i ./src/styles/tailwind.css -o ./dist/styles.css --minify",
+    "build:stencil": "stencil build",
+    "build:auto-register": "node ./scripts/write-auto-register.mjs",
+    "build:react": "esbuild src/react.ts --bundle --format=esm --platform=browser --outfile=dist/react.js --external:react --external:react-dom --external:react/jsx-runtime",
+    "build:react:types": "tsc -p tsconfig.react.types.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "lint": "eslint \"src/**/*.{ts,tsx}\"",
+    "component:new": "node ./scripts/new-component.mjs",
+    "component:check": "node ./scripts/validate-components.mjs",
+    "storybook:prepare": "npm run build:styles && npm run build:stencil",
+    "storybook": "npm run storybook:prepare && storybook dev -p 6006",
+    "storybook:build": "npm run storybook:prepare && storybook build -o ../../.artifacts/storybook-static",
+    "test": "stencil test --spec"
+  },
+  "collection": "./dist/collection/collection-manifest.json",
+  "peerDependencies": {
+    "react": ">=18",
+    "react-dom": ">=18"
+  },
+  "dependencies": {
+    "@floating-ui/dom": "^1.8.0",
+    "cally": "^0.9.2",
+    "composed-offset-position": "^0.0.6"
+  }
+}
