@@ -17,6 +17,7 @@ npm install
 npm run lint
 npm run typecheck
 npm run test
+npm run ci:validate
 ```
 
 ## Build distributables
@@ -39,7 +40,7 @@ Create a static Storybook build:
 npm run storybook:build
 ```
 
-Build outputs are generated in `dist`:
+Build outputs are generated in `packages/core/dist`:
 
 - `index.js` and `auto-register.js`
 - `react.js`
@@ -48,5 +49,9 @@ Build outputs are generated in `dist`:
 
 ## Useful scripts
 
-- `npm run clean` removes `dist` and `coverage`
+- `npm run clean` removes `packages/core/dist` and `packages/core/coverage`
 - `npm run audit` checks runtime dependency vulnerabilities
+- `npm run test:compat` validates compatibility import paths from a packed fixture
+- `npm run test:apps-smoke` validates React, Vue, and HTML consumer smoke apps
+- `npm run release:pack:verify` validates npm pack artifact contents
+- `npm run release:dry-run` runs build, compatibility smoke, and pack verification
