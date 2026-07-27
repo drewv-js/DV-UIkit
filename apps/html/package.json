@@ -1,0 +1,17 @@
+{
+  "name": "@dv-uikit/smoke-html",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@dv-uikit/web-components": "file:../.."
+  },
+  "devDependencies": {
+    "vite": "^7.1.0"
+  }
+}

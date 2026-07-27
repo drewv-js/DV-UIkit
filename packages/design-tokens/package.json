@@ -1,0 +1,22 @@
+{
+  "name": "@dv-uikit/design-tokens",
+  "version": "0.1.0",
+  "private": true,
+  "description": "DV design tokens package with generated CSS, JSON, and Tailwind artifacts.",
+  "type": "module",
+  "files": [
+    "build",
+    "src",
+    "README.md"
+  ],
+  "exports": {
+    "./css/*": "./build/css/*",
+    "./json/*": "./build/json/*",
+    "./tailwind/*": "./build/tailwind/*"
+  },
+  "scripts": {
+    "build": "node ./scripts/build.mjs",
+    "dev": "npm run build",
+    "lint": "node -e \"console.log('No token lint rules configured yet')\""
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "name": "@dv-uikit/vue",
+  "version": "0.1.0",
+  "private": true,
+  "description": "DV Vue wrapper package.",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "type": "module",
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "clean": "node -e \"const fs=require('node:fs'); fs.rmSync('dist',{recursive:true,force:true});\"",
+    "build": "npm run clean && npm run build:js && npm run build:types",
+    "build:js": "esbuild src/index.ts --format=esm --platform=browser --outfile=dist/index.js",
+    "build:types": "tsc -p tsconfig.json",
+    "lint": "npm run typecheck",
+    "test": "npm run typecheck",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "dependencies": {}
+}

@@ -1,0 +1,20 @@
+{
+  "name": "@dv-uikit/smoke-react",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@dv-uikit/react": "file:../../packages/react",
+    "@dv-uikit/web-components": "file:../..",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
+  },
+  "devDependencies": {
+    "vite": "^7.1.0"
+  }
+}
