@@ -9,9 +9,7 @@ const packageMap = [
   ['packages/core/', '@dv-uikit/core'],
   ['packages/react/', '@dv-uikit/react'],
   ['packages/vue/', '@dv-uikit/vue'],
-  ['packages/design-tokens/', '@dv-uikit/design-tokens'],
-  ['packages/eslint-config/', '@dv-uikit/eslint-config'],
-  ['packages/jest-mocks/', '@dv-uikit/jest-mocks']
+  ['packages/design-tokens/', '@dv-uikit/design-tokens']
 ];
 
 const rootTriggersCompatibility = [
