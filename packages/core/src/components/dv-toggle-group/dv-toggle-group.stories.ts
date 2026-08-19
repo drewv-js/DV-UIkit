@@ -32,7 +32,7 @@ const buildReactSnippet = (args: ToggleGroupArgs, variant: Variant) => {
         <DvIcon slot="startIcon" name="list" />
       </DvToggleGroupItem>
       <DvToggleGroupItem value="pie" label="Pie">
-        <DvIcon slot="startIcon" name="grid" />
+        <DvIcon slot="startIcon" name="table-cells" />
       </DvToggleGroupItem>`;
 	} else if (variant === 'icon-only') {
 		items = `      <DvToggleGroupItem value="bar" aria-label="Bar chart">
@@ -42,7 +42,7 @@ const buildReactSnippet = (args: ToggleGroupArgs, variant: Variant) => {
         <DvIcon slot="startIcon" name="list" />
       </DvToggleGroupItem>
       <DvToggleGroupItem value="pie" aria-label="Pie chart">
-        <DvIcon slot="startIcon" name="grid" />
+        <DvIcon slot="startIcon" name="table-cells" />
       </DvToggleGroupItem>`;
 	} else {
 		items = `      <DvToggleGroupItem value="day" label="Day" />
@@ -87,7 +87,7 @@ const buildVueSnippet = (args: ToggleGroupArgs, variant: Variant) => {
     </dv-toggle-group-item>
     <dv-toggle-group-item value="pie" label="Pie">
       <template #startIcon>
-        <dv-icon name="grid" />
+        <dv-icon name="table-cells" />
       </template>
     </dv-toggle-group-item>`;
 	} else if (variant === 'icon-only') {
@@ -103,7 +103,7 @@ const buildVueSnippet = (args: ToggleGroupArgs, variant: Variant) => {
     </dv-toggle-group-item>
     <dv-toggle-group-item value="pie" aria-label="Pie chart">
       <template #startIcon>
-        <dv-icon name="grid" />
+        <dv-icon name="table-cells" />
       </template>
     </dv-toggle-group-item>`;
 	} else {
@@ -177,7 +177,7 @@ function renderGroupWithIcons(args: ToggleGroupArgs) {
 				<dv-icon slot="startIcon" name="list"></dv-icon>
 			</dv-toggle-group-item>
 			<dv-toggle-group-item value="pie" label="Pie">
-				<dv-icon slot="startIcon" name="grid"></dv-icon>
+				<dv-icon slot="startIcon" name="table-cells"></dv-icon>
 			</dv-toggle-group-item>
 		</dv-toggle-group>
 	`;
@@ -193,7 +193,7 @@ function renderIconOnly(args: ToggleGroupArgs) {
 				<dv-icon slot="startIcon" name="list"></dv-icon>
 			</dv-toggle-group-item>
 			<dv-toggle-group-item value="pie" aria-label="Pie chart">
-				<dv-icon slot="startIcon" name="grid"></dv-icon>
+				<dv-icon slot="startIcon" name="table-cells"></dv-icon>
 			</dv-toggle-group-item>
 		</dv-toggle-group>
 	`;

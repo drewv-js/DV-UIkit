@@ -146,7 +146,7 @@ function renderDrawer(
 				options?.useActions
 					? html`<div slot="actions" style="display: flex; gap: 8px">
 							<dv-icon name="pen-to-square" size="xs"></dv-icon>
-							<dv-icon name="link-simple" size="xs"></dv-icon>
+							<dv-icon name="link" size="xs"></dv-icon>
 						</div>`
 					: ''
 			}

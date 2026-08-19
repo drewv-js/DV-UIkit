@@ -55,7 +55,7 @@ function App() {
           Team
         </DvNavigationItem>
         <DvNavigationItem href="/reports" supportingText="Generate and view reports">
-          <DvIcon slot="startIcon" name="file-chart-column" />
+          <DvIcon slot="startIcon" name="chart-column" />
           Reports
         </DvNavigationItem>
       </DvNavigationSection>
@@ -124,7 +124,7 @@ import { DvNavigation, DvNavigationSection, DvNavigationItem } from '@dv-uikit/v
         Team
       </dv-navigation-item>
       <dv-navigation-item href="/reports" supporting-text="Generate and view reports">
-        <dv-icon slot="startIcon" name="file-chart-column" />
+        <dv-icon slot="startIcon" name="chart-column" />
         Reports
       </dv-navigation-item>
     </dv-navigation-section>
@@ -278,7 +278,7 @@ export const WithSupportingTextAndIcon: Story = {
 					Team
 				</dv-navigation-item>
 				<dv-navigation-item href="/reports" supporting-text="Generate and view reports">
-					<dv-icon slot="startIcon" name="file-chart-column"></dv-icon>
+					<dv-icon slot="startIcon" name="chart-column"></dv-icon>
 					Reports
 				</dv-navigation-item>
 			</dv-navigation-section>

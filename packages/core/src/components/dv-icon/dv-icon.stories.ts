@@ -4,7 +4,7 @@ import { html } from 'lit';
 import { createElement, Fragment } from 'react';
 import type { Components } from '../../components';
 import { getColorGroups } from '../../internal/color';
-import iconsData from '@awesome.me/kit-7a574b01fe/icons/metadata/icons.json';
+import { getAllIconNames } from '../../internal/icon-registry';
 import { getStoryHelpers, buildMultiFrameworkSource, type ComponentSnippets } from '../../internal/storybook-helpers';
 
 type IconArgs = Components.DvIcon;
@@ -18,7 +18,7 @@ type IconStoryVariant =
 
 const statusColors = getColorGroups(['status']);
 const statusVariants = Object.keys(statusColors);
-const iconNames = Object.keys(iconsData).flatMap((key) => key || []);
+const iconNames = getAllIconNames();
 
 const getIconStoryVariant = (storyId?: string): IconStoryVariant => {
 	switch (storyId) {
@@ -274,7 +274,7 @@ export const AllIcons: StoryObj = {
 		layout: 'fullscreen',
 		docs: {
 			description: {
-				story: 'All icons from the FontAwesome kit with search, hover tooltip, and click-to-copy functionality.'
+				story: 'All icons from the free Font Awesome Solid set with search, hover tooltip, and click-to-copy functionality.'
 			}
 		}
 	},

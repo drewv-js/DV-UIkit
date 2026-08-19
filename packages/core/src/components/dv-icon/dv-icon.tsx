@@ -1,6 +1,8 @@
 import { Component, h, Host, Prop, State, Watch } from '@stencil/core';
+import { icon } from '@fortawesome/fontawesome-svg-core';
 import type { IconName } from '../../icon-name.generated';
 import { getColorGroups } from '../../internal/color';
+import { getIconDefinition } from '../../internal/icon-registry';
 
 /**
  * ## Overview
@@ -50,8 +52,8 @@ export class DvIcon {
 	/** The name of the icon to be rendered. */
 	@Prop({ reflect: true }) name: IconName;
 
-	/** Holds placeholder text derived from the icon name. */
-	@State() iconText: string;
+	/** Holds the rendered SVG markup for the current icon name. */
+	@State() svgMarkup?: string;
 
 	/** Holds the size class for the icon based on the size prop. */
 	@State() sizeClass: string;
@@ -91,7 +93,8 @@ export class DvIcon {
 
 	/** Updates the SVG based on the current name. */
 	private updateIcon() {
-		this.iconText = (this.name ?? '?').slice(0, 2).toUpperCase();
+		const definition = getIconDefinition(this.name);
+		this.svgMarkup = definition ? icon(definition).html.join('') : undefined;
 	}
 
 	/** Sets the size class based on the size prop. */
@@ -143,14 +146,11 @@ export class DvIcon {
 
 		return (
 			<Host>
-				<div class={`antialiased justify-center flex ${this.colorClass} items-center`} style={inheritStyle}>
-					<span
-						class={`overflow-visible ${this.sizeClass} inline-flex items-center justify-center rounded-full border border-current text-[10px] leading-none`}
-						title={`Font Awesome placeholder: ${this.name ?? 'unknown'}`}
-					>
-						{this.iconText}
-					</span>
-				</div>
+				<div
+					class={`antialiased justify-center flex ${this.colorClass} items-center ${this.sizeClass}`}
+					style={inheritStyle}
+					innerHTML={this.svgMarkup}
+				></div>
 			</Host>
 		);
 	}
