@@ -1,0 +1,17 @@
+# Add files here to ignore them from prettier formatting
+.turbo/
+.stencil/
+.artifacts/
+node_modules/
+
+/dist
+/storybook-static
+/CHANGELOG.md
+/pnpm-lock.yaml
+/packages/*/dist/
+/packages/*/build/
+/packages/*/loader/
+/packages/*/www/
+/packages/design-tokens/build/
+*.yaml
+*.mdx

@@ -1,134 +1,142 @@
 {
-  "name": "@dv-uikit/web-components",
-  "version": "0.1.0",
-  "description": "Private reusable Web Component kit with Tailwind-based design tokens and React wrappers.",
-  "type": "module",
-  "private": true,
-  "packageManager": "pnpm@9.15.0",
-  "main": "./dist/index.cjs.js",
-  "module": "./dist/components/index.js",
-  "types": "./dist/components/index.d.ts",
-  "sideEffects": [
-    "./dist/auto-register.js",
-    "./dist/styles.css"
-  ],
-  "files": [
-    "dist",
-    "tailwind.preset.cjs",
-    "README.md",
-    "SECURITY.md",
-    "LICENSE"
-  ],
-  "exports": {
-    ".": {
-      "types": "./dist/components/index.d.ts",
-      "import": "./dist/components/index.js",
-      "default": "./dist/components/index.js"
-    },
-    "./auto-register": {
-      "types": "./dist/auto-register.d.ts",
-      "import": "./dist/auto-register.js",
-      "default": "./dist/auto-register.js"
-    },
-    "./react": {
-      "types": "./dist/react.d.ts",
-      "import": "./dist/react.js",
-      "default": "./dist/react.js"
-    },
-    "./styles.css": "./dist/styles.css",
-    "./tailwind-preset": "./tailwind.preset.cjs"
-  },
-  "scripts": {
-    "dev": "pnpm run dev-storybook",
-    "dev-storybook": "pnpm run storybook",
-    "clean": "npm --prefix packages/core run clean",
-    "build": "npm run build:workspace",
-    "build:design-tokens": "npm --prefix packages/design-tokens run build",
-    "build:core": "npm --prefix packages/core run build",
-    "build:frameworks": "npm --prefix packages/react run build && npm --prefix packages/vue run build",
-    "build:compat": "node ./scripts/build-compat.mjs",
-    "build:workspace": "npm run build:design-tokens && npm run build:core && npm run build:frameworks && npm run build:compat",
-    "build:styles": "npm --prefix packages/core run build:styles",
-    "build:stencil": "npm --prefix packages/core run build:stencil",
-    "build:auto-register": "npm --prefix packages/core run build:auto-register",
-    "build:react": "npm --prefix packages/core run build:react",
-    "build:react:types": "npm --prefix packages/core run build:react:types",
-    "typecheck": "npm run typecheck:workspace",
-    "typecheck:workspace": "npm --prefix packages/core run typecheck",
-    "lint": "npm run lint:workspace",
-    "lint:workspace": "npm --prefix packages/core run lint",
-    "component:new": "npm --prefix packages/core run component:new",
-    "component:check": "npm --prefix packages/core run component:check",
-    "storybook:prepare": "npm --prefix packages/core run storybook:prepare",
-    "storybook": "npm --prefix packages/core run storybook",
-    "storybook:build": "npm --prefix packages/core run storybook:build",
-    "test": "npm run test:workspace",
-    "test:workspace": "npm --prefix packages/core run test",
-    "test:compat": "node ./scripts/smoke-compat.mjs",
-    "test:apps-smoke": "node ./scripts/smoke-apps.mjs",
-    "ci:graph": "npx --yes turbo@^2.9.14 run lint typecheck test build --filter=./packages/* --ui=stream",
-    "ci:validate": "npm run release:lockstep && npm run ci:graph && npm run build:compat && npm run test:compat && npm run test:apps-smoke",
-    "turbo:build:dry": "npx --yes turbo@^2.9.14 run build --dry=json",
-    "audit": "npm audit --omit=dev",
-    "release:lockstep": "node ./scripts/check-release-lockstep.mjs",
-    "release:changed": "node ./scripts/detect-changed-packages.mjs",
-    "release:pack:verify": "node ./scripts/verify-pack-artifacts.mjs",
-    "release:dry-run": "node ./scripts/release-dry-run.mjs",
-    "prepublishOnly": "npm run build:workspace && npm run test:compat",
-    "release:verify": "npm run component:check && npm run ci:validate",
-    "release:patch": "npm run release:verify && npm version patch",
-    "release:minor": "npm run release:verify && npm version minor",
-    "release:major": "npm run release:verify && npm version major"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/drewv-js/DV-UIkit.git"
-  },
-  "keywords": [
-    "web-components",
-    "stencil",
-    "tailwind",
-    "design-system",
-    "react-wrapper"
-  ],
-  "author": "",
-  "license": "UNLICENSED",
-  "bugs": {
-    "url": "https://github.com/drewv-js/DV-UIkit/issues"
-  },
-  "homepage": "https://github.com/drewv-js/DV-UIkit#readme",
-  "collection": "./dist/collection/collection-manifest.json",
-  "publishConfig": {
-    "access": "restricted",
-    "provenance": true
-  },
-  "peerDependencies": {
-    "react": ">=18",
-    "react-dom": ">=18"
-  },
-  "dependencies": {
-    "@stencil/core": "^4.38.1"
-  },
-  "devDependencies": {
-    "@eslint/js": "^9.39.4",
-    "@storybook/addon-docs": "^10.5.0",
-    "@storybook/web-components-vite": "^10.4.6",
-    "@types/jest": "^29.5.14",
-    "@types/node": "^24.0.0",
-    "@types/react": "^19.2.17",
-    "@typescript-eslint/eslint-plugin": "^8.63.0",
-    "@typescript-eslint/parser": "^8.63.0",
-    "esbuild": "^0.28.1",
-    "eslint": "^9.39.4",
-    "eslint-plugin-security": "^4.0.1",
-    "jest": "^29.7.0",
-    "jest-cli": "^29.7.0",
-    "react": "^19.2.7",
-    "react-dom": "^19.2.7",
-    "sass-embedded": "^1.100.0",
-    "storybook": "^10.4.6",
-    "tailwindcss": "^3.4.17",
-    "turbo": "^2.9.14",
-    "typescript": "^6.0.3"
-  }
+	"name": "@dv-uikit/web-components",
+	"version": "0.1.0",
+	"description": "Private reusable Web Component kit with Tailwind-based design tokens and React wrappers.",
+	"type": "module",
+	"private": true,
+	"packageManager": "pnpm@9.15.0",
+	"main": "./dist/index.cjs.js",
+	"module": "./dist/components/index.js",
+	"types": "./dist/components/index.d.ts",
+	"sideEffects": [
+		"./dist/auto-register.js",
+		"./dist/styles.css"
+	],
+	"files": [
+		"dist",
+		"tailwind.preset.cjs",
+		"README.md",
+		"SECURITY.md",
+		"LICENSE"
+	],
+	"exports": {
+		".": {
+			"types": "./dist/components/index.d.ts",
+			"import": "./dist/components/index.js",
+			"default": "./dist/components/index.js"
+		},
+		"./auto-register": {
+			"types": "./dist/auto-register.d.ts",
+			"import": "./dist/auto-register.js",
+			"default": "./dist/auto-register.js"
+		},
+		"./react": {
+			"types": "./dist/react.d.ts",
+			"import": "./dist/react.js",
+			"default": "./dist/react.js"
+		},
+		"./styles.css": "./dist/styles.css",
+		"./tailwind-preset": "./tailwind.preset.cjs"
+	},
+	"scripts": {
+		"dev": "pnpm run dev-storybook",
+		"dev-storybook": "pnpm run storybook",
+		"prepare": "husky",
+		"format": "prettier --write .",
+		"format:check": "prettier --check .",
+		"clean": "npm --prefix packages/core run clean",
+		"build": "npm run build:workspace",
+		"build:design-tokens": "npm --prefix packages/design-tokens run build",
+		"build:core": "npm --prefix packages/core run build",
+		"build:frameworks": "npm --prefix packages/react run build && npm --prefix packages/vue run build",
+		"build:compat": "node ./scripts/build-compat.mjs",
+		"build:workspace": "npm run build:design-tokens && npm run build:core && npm run build:frameworks && npm run build:compat",
+		"build:styles": "npm --prefix packages/core run build:styles",
+		"build:stencil": "npm --prefix packages/core run build:stencil",
+		"build:auto-register": "npm --prefix packages/core run build:auto-register",
+		"build:react": "npm --prefix packages/core run build:react",
+		"build:react:types": "npm --prefix packages/core run build:react:types",
+		"typecheck": "npm run typecheck:workspace",
+		"typecheck:workspace": "npm --prefix packages/core run typecheck",
+		"lint": "npm run lint:workspace",
+		"lint:workspace": "npm --prefix packages/core run lint",
+		"component:new": "npm --prefix packages/core run component:new",
+		"component:check": "npm --prefix packages/core run component:check",
+		"storybook:prepare": "npm --prefix packages/core run storybook:prepare",
+		"storybook": "npm --prefix packages/core run storybook",
+		"storybook:build": "npm --prefix packages/core run storybook:build",
+		"test": "npm run test:workspace",
+		"test:workspace": "npm --prefix packages/core run test",
+		"test:storybook": "npm run storybook:build && npm --prefix packages/core run test:storybook",
+		"test:compat": "node ./scripts/smoke-compat.mjs",
+		"test:apps-smoke": "node ./scripts/smoke-apps.mjs",
+		"ci:graph": "npx --yes turbo@^2.9.14 run lint typecheck test build --filter=./packages/* --ui=stream",
+		"ci:validate": "npm run release:lockstep && npm run ci:graph && npm run build:compat && npm run test:compat && npm run test:apps-smoke",
+		"turbo:build:dry": "npx --yes turbo@^2.9.14 run build --dry=json",
+		"audit": "npm audit --omit=dev",
+		"release:lockstep": "node ./scripts/check-release-lockstep.mjs",
+		"release:changed": "node ./scripts/detect-changed-packages.mjs",
+		"release:pack:verify": "node ./scripts/verify-pack-artifacts.mjs",
+		"release:dry-run": "node ./scripts/release-dry-run.mjs",
+		"prepublishOnly": "npm run build:workspace && npm run test:compat",
+		"release:verify": "npm run component:check && npm run ci:validate",
+		"release:patch": "npm run release:verify && npm version patch",
+		"release:minor": "npm run release:verify && npm version minor",
+		"release:major": "npm run release:verify && npm version major"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/drewv-js/DV-UIkit.git"
+	},
+	"keywords": [
+		"web-components",
+		"stencil",
+		"tailwind",
+		"design-system",
+		"react-wrapper"
+	],
+	"author": "",
+	"license": "UNLICENSED",
+	"bugs": {
+		"url": "https://github.com/drewv-js/DV-UIkit/issues"
+	},
+	"homepage": "https://github.com/drewv-js/DV-UIkit#readme",
+	"collection": "./dist/collection/collection-manifest.json",
+	"publishConfig": {
+		"access": "restricted",
+		"provenance": true
+	},
+	"peerDependencies": {
+		"react": ">=18",
+		"react-dom": ">=18"
+	},
+	"dependencies": {
+		"@stencil/core": "^4.38.1"
+	},
+	"devDependencies": {
+		"@eslint/js": "^9.39.4",
+		"@storybook/addon-docs": "^10.5.0",
+		"@storybook/web-components-vite": "^10.4.6",
+		"@types/jest": "^29.5.14",
+		"@types/node": "^24.0.0",
+		"@types/react": "^19.2.17",
+		"@typescript-eslint/eslint-plugin": "^8.63.0",
+		"@typescript-eslint/parser": "^8.63.0",
+		"esbuild": "^0.28.1",
+		"eslint": "^9.39.4",
+		"eslint-plugin-security": "^4.0.1",
+		"husky": "^9.1.7",
+		"jest": "^29.7.0",
+		"jest-cli": "^29.7.0",
+		"lint-staged": "^17.3.0",
+		"prettier": "^3.9.6",
+		"prettier-plugin-organize-imports": "^4.3.0",
+		"react": "^19.2.7",
+		"react-dom": "^19.2.7",
+		"sass-embedded": "^1.100.0",
+		"storybook": "^10.4.6",
+		"tailwindcss": "^3.4.17",
+		"turbo": "^2.9.14",
+		"typescript": "^6.0.3"
+	}
 }
