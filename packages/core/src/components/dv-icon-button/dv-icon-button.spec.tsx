@@ -23,7 +23,7 @@ describe('dv-icon-button', () => {
 
 	describe('Initialization with default state', () => {
 		it('renders with default properties', async () => {
-			button.root.name = 'home';
+			button.root.name = 'house';
 			await button.waitForChanges();
 			const buttonElement = button.root.shadowRoot.querySelector('button');
 			// Check that the button has the correct class
@@ -41,7 +41,7 @@ describe('dv-icon-button', () => {
 			]);
 			const buttonIconElement = button.root.shadowRoot.querySelector('dv-icon');
 			// Check that the icon has the correct attribute value
-			expect(buttonIconElement.getAttribute('name')).toBe('home');
+			expect(buttonIconElement.getAttribute('name')).toBe('house');
 		});
 	});
 
@@ -187,4 +187,3 @@ describe('dv-icon-button', () => {
 		});
 	});
 });
-
