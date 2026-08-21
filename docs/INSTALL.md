@@ -1,10 +1,10 @@
-# Install and Use
+# Install And Use
 
 ## Who this is for
 
-Any external project (personal or team) that needs to consume the private `@dv-uikit/web-components` package from npmjs.
+Projects owned by the DV UIkit GitHub account that need to consume the private `@dv-uikit/web-components` package from npmjs.
 
-## 1. Add npm auth in each consumer repo
+## 1. Configure private npm access
 
 Create a project-level `.npmrc` file:
 
@@ -14,7 +14,7 @@ Create a project-level `.npmrc` file:
 always-auth=true
 ```
 
-Set `NPM_TOKEN` in your shell or local secret manager.
+Set `NPM_TOKEN` in your shell, local secret manager, or GitHub Actions secrets. Never commit the token value.
 
 ## 2. Install
 
@@ -22,7 +22,7 @@ Set `NPM_TOKEN` in your shell or local secret manager.
 npm install @dv-uikit/web-components
 ```
 
-If you publish and consume lockstep versions internally, pin an exact version:
+For a reproducible build, install an exact version:
 
 ```bash
 npm install @dv-uikit/web-components@0.1.0
@@ -48,12 +48,12 @@ import '@dv-uikit/web-components/styles.css';
 import { DvButtonReact, DvCardReact } from '@dv-uikit/web-components/react';
 
 export function App() {
-  return (
-    <DvCardReact heading="Profile">
-      <p>Update your settings.</p>
-      <DvButtonReact variant="primary">Save</DvButtonReact>
-    </DvCardReact>
-  );
+	return (
+		<DvCardReact heading="Profile">
+			<p>Update your settings.</p>
+			<DvButtonReact variant="primary">Save</DvButtonReact>
+		</DvCardReact>
+	);
 }
 ```
 
@@ -63,9 +63,11 @@ In consumer Tailwind config, load the preset:
 
 ```js
 module.exports = {
-  presets: [require('@dv-uikit/web-components/tailwind-preset')]
+	presets: [require('@dv-uikit/web-components/tailwind-preset')]
 };
 ```
+
+Most consumers only need to import `styles.css`. Use the Tailwind preset when the application needs the design-token names in its own Tailwind classes.
 
 ## 6. Supported consumer entrypoints
 
@@ -85,3 +87,10 @@ module.exports = {
   - Ensure `@dv-uikit/web-components/auto-register` is imported once at app startup.
 - Styles are missing:
   - Ensure `@dv-uikit/web-components/styles.css` is imported in the app entry.
+
+## Private package notes
+
+- The package is hosted on npmjs with restricted access.
+- `NPM_TOKEN` needs read access to install the package.
+- `NPM_PUBLISH_TOKEN` is used only by the repository's publish workflow.
+- The package is not currently intended for public npm use.
