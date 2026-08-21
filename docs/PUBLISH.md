@@ -8,6 +8,7 @@ This project is configured for private npm publishing from a personal account.
 2. Add repository secret `NPM_PUBLISH_TOKEN` in GitHub.
 3. Confirm package name and scope in `package.json`.
 4. Keep `publishConfig.access` set to `restricted`.
+5. Leave npm provenance disabled while the package is private. npm does not support provenance for restricted packages.
 
 Never put the token in a tracked `.npmrc` file or commit it.
 
@@ -37,6 +38,9 @@ git push --follow-tags
 
 - Open the workflow `Publish Private Package`
 - Run workflow manually (`workflow_dispatch`)
+- For the first publication, set `force_publish` to `true`.
+
+The workflow checks whether files changed compared with `origin/main`. A manual run on the current `main` commit can pass all checks and still skip publishing because it finds no new changes. Use `force_publish: true` for the initial publication.
 
 ## Local Emergency Publish (Optional)
 

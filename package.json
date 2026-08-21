@@ -103,8 +103,7 @@
 	"homepage": "https://github.com/drewv-js/DV-UIkit#readme",
 	"collection": "./dist/collection/collection-manifest.json",
 	"publishConfig": {
-		"access": "restricted",
-		"provenance": true
+		"access": "restricted"
 	},
 	"peerDependencies": {
 		"react": ">=18",

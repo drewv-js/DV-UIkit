@@ -86,6 +86,7 @@ Before publishing, review the root `package.json`:
 - `exports` points to files produced by the build.
 - `license` reflects the intended internal distribution policy.
 - `author` is populated if desired.
+- Leave npm provenance disabled while the package uses restricted access. npm rejects provenance for private packages.
 
 `UNLICENSED` is acceptable for an intentionally private package, but choose a real license before making the package public.
 
@@ -203,6 +204,8 @@ Before triggering it, confirm:
 - The package version is not already published.
 - The release commit and tag are pushed.
 - The package is still intended to be private.
+
+For the first package publication, set `force_publish` to `true` when running the workflow. A manual run on the current `main` commit can pass all checks and skip publishing because the change detector finds no changes compared with `origin/main`.
 
 ## Step 8: Consume It In Real Projects
 
