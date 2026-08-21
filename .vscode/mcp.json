@@ -1,6 +1,6 @@
 {
 	"servers": {
-		"my-mcp-server-c9b55184": {
+		"dv_figma_server": {
 			"url": "https://mcp.figma.com/mcp",
 			"type": "http"
 		}
