@@ -7,18 +7,18 @@ This runbook describes the first release path for DV UIkit. The initial goal is 
 Publish one private scoped package:
 
 ```text
-@dv-uikit/web-components
+@drewv-js/web-components
 ```
 
 Consumers install one package and can use the Web Components directly:
 
 ```bash
-npm install @dv-uikit/web-components
+npm install @drewv-js/web-components
 ```
 
 ```ts
-import '@dv-uikit/web-components/auto-register';
-import '@dv-uikit/web-components/styles.css';
+import '@drewv-js/web-components/auto-register';
+import '@drewv-js/web-components/styles.css';
 ```
 
 ```html
@@ -36,14 +36,16 @@ The root package already assembles the consumer-facing output through `scripts/b
 
 ## Decision For The First Release
 
-- Registry: npmjs
+- Registry: GitHub Packages
 - Visibility: private scoped package
-- Package: `@dv-uikit/web-components`
+- Package: `@drewv-js/web-components`
 - Access: `restricted`
 - Release location: GitHub Actions
-- Authentication: `NPM_PUBLISH_TOKEN` for publishing and a read-capable token for consumers
+- Authentication: built-in GitHub Actions `GITHUB_TOKEN` for publishing and a GitHub token with `read:packages` for consumers
 - Versioning: keep the current lockstep versioning for core, React, and Vue
 - Framework strategy: keep the current combined package for the first release; split React/Vue packages later only if usage justifies it
+
+Important: GitHub Packages uses the GitHub repository owner as the npm scope. This plan uses `@drewv-js/web-components` because the repository is owned by `drewv-js`.
 
 ## Step 1: Make The Root Package Publishable
 
@@ -53,7 +55,7 @@ Change only the root `package.json`:
 
 - Remove `"private": true`, or set `"private": false`.
 - Keep `publishConfig.access` as `restricted`.
-- Keep `publishConfig.provenance` enabled.
+- Leave npm provenance disabled while the package uses restricted access. npm rejects provenance for private packages.
 - Leave the internal workspace packages private.
 
 Do not change the package name or package boundaries during this step.
@@ -67,7 +69,7 @@ npm pkg get name version private publishConfig
 Expected values include:
 
 ```text
-@dv-uikit/web-components
+@drewv-js/web-components
 0.1.0
 false
 restricted
@@ -79,7 +81,7 @@ Status: **complete**
 
 Before publishing, review the root `package.json`:
 
-- `name` is `@dv-uikit/web-components`.
+- `name` is `@drewv-js/web-components`.
 - `description` explains the package clearly.
 - `repository`, `homepage`, and `bugs` point to the GitHub repository.
 - `files` includes only built output and required documentation.
@@ -131,50 +133,42 @@ npm install ../DV-UIkit/dv-uikit-web-components-0.1.0.tgz
 
 Add a small Web Components smoke test that:
 
-- Imports `@dv-uikit/web-components/auto-register`.
-- Imports `@dv-uikit/web-components/styles.css`.
+- Imports `@drewv-js/web-components/auto-register`.
+- Imports `@drewv-js/web-components/styles.css`.
 - Renders a `dv-button` and another representative component.
 - Confirms TypeScript can resolve the package declarations if the consumer uses TypeScript.
 
 This test must use the packed tarball rather than workspace links.
 
-## Step 5: Configure npm Authentication
+## Step 5: Configure GitHub Packages Authentication
 
-Status: **waiting for account authentication**
+Status: **in progress**
 
 ### Publishing token
 
-Create an npm token with permission to publish the scoped package. Store it in the GitHub repository secret:
-
-```text
-NPM_PUBLISH_TOKEN
-```
-
-Never commit the token or place it in a tracked `.npmrc` file.
-
-The existing `.github/workflows/publish.yml` uses this secret as `NODE_AUTH_TOKEN` and publishes to `https://registry.npmjs.org`.
+GitHub Actions publishes with its built-in `GITHUB_TOKEN`. The workflow grants it `packages: write` permission and sends npm to `https://npm.pkg.github.com`. A local publishing token is not needed for the Actions workflow.
 
 ### Consumer token
 
 Each private consumer project needs an `.npmrc` file, or an equivalent user-level configuration:
 
 ```ini
-@dv-uikit:registry=https://registry.npmjs.org/
-//registry.npmjs.org/:_authToken=${NPM_TOKEN}
+@drewv-js:registry=https://npm.pkg.github.com/
+//npm.pkg.github.com/:_authToken=${GITHUB_PACKAGES_TOKEN}
 always-auth=true
 ```
 
-For GitHub Actions, configure `NPM_TOKEN` as a repository or organization secret and pass it to the install job.
+For local installs, use a GitHub personal access token with `read:packages` permission. For GitHub Actions in a consuming repository, use its `GITHUB_TOKEN` with `packages: read` permission.
 
-Do not commit a token value. The `${NPM_TOKEN}` placeholder is safe to commit.
+Do not commit a token value. The `${GITHUB_PACKAGES_TOKEN}` placeholder is safe to commit.
 
 ## Step 6: Publish A Beta Version
 
-After the tarball works locally, publish a prerelease:
+After the tarball works locally, publish a prerelease to GitHub Packages:
 
 ```bash
 npm version prerelease --preid=beta
-npm publish --tag beta
+npm publish --tag beta --registry=https://npm.pkg.github.com
 ```
 
 Alternatively, use the existing GitHub Actions publish workflow after the version is committed and tagged.
@@ -182,7 +176,7 @@ Alternatively, use the existing GitHub Actions publish workflow after the versio
 Test the registry package from a clean consumer:
 
 ```bash
-npm install @dv-uikit/web-components@beta
+npm install @drewv-js/web-components@beta
 ```
 
 Verify registration, styles, exports, and declarations again.
@@ -193,7 +187,7 @@ Once the beta works from npm:
 
 ```bash
 npm version patch
-npm publish
+npm publish --registry=https://npm.pkg.github.com
 ```
 
 The preferred path is the existing `Publish Private Package` GitHub Actions workflow. It runs the build, tests, compatibility checks, and package verification before publishing.
@@ -212,20 +206,20 @@ For the first package publication, set `force_publish` to `true` when running th
 In each internal project:
 
 ```bash
-npm install @dv-uikit/web-components
+npm install @drewv-js/web-components
 ```
 
 Add the registry configuration and import the package once during application startup:
 
 ```ts
-import '@dv-uikit/web-components/auto-register';
-import '@dv-uikit/web-components/styles.css';
+import '@drewv-js/web-components/auto-register';
+import '@drewv-js/web-components/styles.css';
 ```
 
 For React projects, the current combined package also provides:
 
 ```tsx
-import { DvButtonReact } from '@dv-uikit/web-components/react';
+import { DvButtonReact } from '@drewv-js/web-components/react';
 ```
 
 ## Release Checklist

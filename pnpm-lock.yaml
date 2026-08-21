@@ -87,7 +87,7 @@ importers:
 
   apps/html:
     dependencies:
-      '@dv-uikit/web-components':
+      '@drewv-js/web-components':
         specifier: file:../..
         version: file:(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
     devDependencies:
@@ -97,12 +97,12 @@ importers:
 
   apps/react:
     dependencies:
+      '@drewv-js/web-components':
+        specifier: file:../..
+        version: file:(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       '@dv-uikit/react':
         specifier: file:../../packages/react
         version: file:packages/react(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
-      '@dv-uikit/web-components':
-        specifier: file:../..
-        version: file:(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       react:
         specifier: ^19.2.0
         version: 19.2.8
@@ -116,12 +116,12 @@ importers:
 
   apps/vue:
     dependencies:
+      '@drewv-js/web-components':
+        specifier: file:../..
+        version: file:(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       '@dv-uikit/vue':
         specifier: file:../../packages/vue
         version: link:../../packages/vue
-      '@dv-uikit/web-components':
-        specifier: file:../..
-        version: file:(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       vue:
         specifier: ^3.5.0
         version: 3.5.40(typescript@6.0.3)
@@ -361,14 +361,14 @@ packages:
   '@bufbuild/protobuf@2.13.0':
     resolution: {integrity: sha512-acq7c49vxfm1ggJ95P70TX7ABDM0vxr1SYD3BB0o0jnBLB4OAqeHyKuN+cD3w80gXEDQ2zxHpR6CUeA+O/aU9g==}
 
-  '@dv-uikit/react@file:packages/react':
-    resolution: {directory: packages/react, type: directory}
+  '@drewv-js/web-components@file:':
+    resolution: {directory: '', type: directory}
     peerDependencies:
       react: '>=18'
       react-dom: '>=18'
 
-  '@dv-uikit/web-components@file:':
-    resolution: {directory: '', type: directory}
+  '@dv-uikit/react@file:packages/react':
+    resolution: {directory: packages/react, type: directory}
     peerDependencies:
       react: '>=18'
       react-dom: '>=18'
@@ -2430,6 +2430,7 @@ packages:
   eslint@9.39.5:
     resolution: {integrity: sha512-DgZS62aPLXKlnxILS/AYCoRvHaZeXceIzlXPkkGGzJWSow1aEk0lbTlxUSlyjC8jcaKxAdOnTDz+o1JFSBsyjw==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
+    deprecated: This version is no longer supported. Please see https://eslint.org/version-support for other options.
     hasBin: true
     peerDependencies:
       jiti: '*'
@@ -4563,15 +4564,15 @@ snapshots:
 
   '@bufbuild/protobuf@2.13.0': {}
 
-  '@dv-uikit/react@file:packages/react(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
+  '@drewv-js/web-components@file:(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
     dependencies:
-      '@dv-uikit/core': link:packages/core
+      '@stencil/core': 4.43.5
       react: 19.2.8
       react-dom: 19.2.8(react@19.2.8)
 
-  '@dv-uikit/web-components@file:(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
+  '@dv-uikit/react@file:packages/react(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
     dependencies:
-      '@stencil/core': 4.43.5
+      '@dv-uikit/core': link:packages/core
       react: 19.2.8
       react-dom: 19.2.8(react@19.2.8)
 

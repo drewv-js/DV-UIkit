@@ -1,6 +1,6 @@
 # Release Checklist
 
-Use this checklist for every release of `@dv-uikit/web-components`.
+Use this checklist for every release of `@drewv-js/web-components` to GitHub Packages.
 
 ## 1. Pre-release validation
 
@@ -51,21 +51,21 @@ In GitHub Actions:
 
 Requirements:
 
-- Repo secret `NPM_PUBLISH_TOKEN` exists
-- Token has publish permission for this package
+- The workflow grants `GITHUB_TOKEN` `packages: write` permission
+- The package scope matches the GitHub repository owner: `@drewv-js`
 
 ## 5. Post-publish smoke test
 
 In a consumer project:
 
 ```bash
-npm install @dv-uikit/web-components@latest
+npm install @drewv-js/web-components@latest --registry=https://npm.pkg.github.com
 ```
 
 Verify:
 
-- Import works: `import '@dv-uikit/web-components';`
-- Styles load: `import '@dv-uikit/web-components/styles.css';`
+- Import works: `import '@drewv-js/web-components';`
+- Styles load: `import '@drewv-js/web-components/styles.css';`
 - Components render: `dv-button`, `dv-card`
 
 ## 6. Optional local emergency publish
@@ -79,7 +79,7 @@ npm run build
 npm publish
 ```
 
-Use a local publish-capable npm token only when necessary.
+Use a GitHub token with `write:packages` only when necessary. Prefer the GitHub Actions workflow.
 
 ## 7. Record release notes
 

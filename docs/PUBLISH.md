@@ -1,14 +1,16 @@
 # Publish And Release
 
-This project is configured for private npm publishing from a personal account.
+This project is configured for private publishing to GitHub Packages.
+
+The package is published to GitHub Packages instead of the public npm registry. This keeps it private for repositories that have access to the GitHub account.
 
 ## One-Time Setup
 
-1. Create an npm granular access token with publish permission for `@dv-uikit/web-components`.
-2. Add repository secret `NPM_PUBLISH_TOKEN` in GitHub.
+1. Confirm the repository owner is `drewv-js`, matching the package scope `@drewv-js`.
+2. GitHub Actions uses its built-in `GITHUB_TOKEN` to publish.
 3. Confirm package name and scope in `package.json`.
 4. Keep `publishConfig.access` set to `restricted`.
-5. Leave npm provenance disabled while the package is private. npm does not support provenance for restricted packages.
+5. Keep the workflow's `packages: write` permission enabled.
 
 Never put the token in a tracked `.npmrc` file or commit it.
 
@@ -53,10 +55,16 @@ npm run build
 npm publish
 ```
 
-Requires local npm auth with a publish-capable token.
+Use the GitHub Packages registry when publishing manually:
+
+```bash
+npm publish --registry=https://npm.pkg.github.com
+```
+
+Requires local GitHub Packages authentication with a token that has `write:packages` access. Prefer the GitHub Actions workflow instead.
 
 ## Post-Publish Checks
 
 - Confirm package version exists on npm.
 - Install in one consumer repo and run a smoke check.
-- Confirm the consumer project uses a read-capable `NPM_TOKEN`.
+- Confirm the consumer project uses a GitHub token with `read:packages` access.

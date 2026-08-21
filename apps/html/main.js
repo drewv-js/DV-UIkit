@@ -1,2 +1,2 @@
-import '@dv-uikit/web-components/auto-register';
-import '@dv-uikit/web-components/styles.css';
+import '@drewv-js/web-components/auto-register';
+import '@drewv-js/web-components/styles.css';

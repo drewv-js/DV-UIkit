@@ -54,12 +54,12 @@ for (const filePath of changedFiles) {
   }
 
   if (rootTriggersCompatibility.some((prefix) => filePath.startsWith(prefix) || filePath === prefix)) {
-    changedPackages.add('@dv-uikit/web-components');
+    changedPackages.add('@drewv-js/web-components');
   }
 }
 
 const changedList = [...changedPackages].sort();
-const shouldPublishRoot = changedPackages.has('@dv-uikit/web-components');
+const shouldPublishRoot = changedPackages.has('@drewv-js/web-components');
 
 console.log(`Base ref: ${baseRef}`);
 console.log(`Head ref: ${headRef}`);

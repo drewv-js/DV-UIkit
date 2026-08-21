@@ -3,7 +3,7 @@
 Private, reusable UI kit for projects owned by the DV UIkit GitHub account.
 
 - Workspace root: orchestration only
-- Installable package: `@dv-uikit/web-components`
+- Installable package: `@drewv-js/web-components`
 - Stack: Stencil Web Components, Tailwind-based tokens, React/TypeScript wrappers
 - Registry: npmjs private package (personal account)
 
@@ -12,12 +12,12 @@ Private, reusable UI kit for projects owned by the DV UIkit GitHub account.
 Configure access to the private npm package, install it, then import registration and styles:
 
 ```bash
-npm install @dv-uikit/web-components
+npm install @drewv-js/web-components
 ```
 
 ```ts
-import '@dv-uikit/web-components/auto-register';
-import '@dv-uikit/web-components/styles.css';
+import '@drewv-js/web-components/auto-register';
+import '@drewv-js/web-components/styles.css';
 ```
 
 ```html
@@ -29,9 +29,9 @@ import '@dv-uikit/web-components/styles.css';
 Quick path for external consumers:
 
 1. Add the private npm registry settings shown in [docs/INSTALL.md](docs/INSTALL.md).
-2. Install `@dv-uikit/web-components`.
-3. Import `@dv-uikit/web-components/auto-register` and `@dv-uikit/web-components/styles.css`.
-4. Optionally use `@dv-uikit/web-components/react` and `@dv-uikit/web-components/tailwind-preset`.
+2. Install `@drewv-js/web-components`.
+3. Import `@drewv-js/web-components/auto-register` and `@drewv-js/web-components/styles.css`.
+4. Optionally use `@drewv-js/web-components/react` and `@drewv-js/web-components/tailwind-preset`.
 
 For complete setup, full examples, and troubleshooting, use:
 
@@ -39,11 +39,11 @@ For complete setup, full examples, and troubleshooting, use:
 
 Supported consumer entrypoints:
 
-- `@dv-uikit/web-components`
-- `@dv-uikit/web-components/auto-register`
-- `@dv-uikit/web-components/react`
-- `@dv-uikit/web-components/styles.css`
-- `@dv-uikit/web-components/tailwind-preset`
+- `@drewv-js/web-components`
+- `@drewv-js/web-components/auto-register`
+- `@drewv-js/web-components/react`
+- `@drewv-js/web-components/styles.css`
+- `@drewv-js/web-components/tailwind-preset`
 
 The package is currently private and intended for projects owned by the DV UIkit GitHub account.
 

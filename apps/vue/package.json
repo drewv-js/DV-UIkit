@@ -1,19 +1,19 @@
 {
-  "name": "@dv-uikit/smoke-vue",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
-  "scripts": {
-    "dev": "vite --host",
-    "build": "vite build",
-    "preview": "vite preview"
-  },
-  "dependencies": {
-    "@dv-uikit/vue": "file:../../packages/vue",
-    "@dv-uikit/web-components": "file:../..",
-    "vue": "^3.5.0"
-  },
-  "devDependencies": {
-    "vite": "^7.1.0"
-  }
+	"name": "@dv-uikit/smoke-vue",
+	"private": true,
+	"version": "0.0.0",
+	"type": "module",
+	"scripts": {
+		"dev": "vite --host",
+		"build": "vite build",
+		"preview": "vite preview"
+	},
+	"dependencies": {
+		"@dv-uikit/vue": "file:../../packages/vue",
+		"@drewv-js/web-components": "file:../..",
+		"vue": "^3.5.0"
+	},
+	"devDependencies": {
+		"vite": "^7.1.0"
+	}
 }

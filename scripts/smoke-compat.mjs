@@ -36,17 +36,17 @@ try {
       "import { createRequire } from 'node:module';",
       "const require = createRequire(import.meta.url);",
       "const entries = [",
-      "  '@dv-uikit/web-components',",
-      "  '@dv-uikit/web-components/auto-register',",
-      "  '@dv-uikit/web-components/react',",
-      "  '@dv-uikit/web-components/styles.css',",
-      "  '@dv-uikit/web-components/tailwind-preset'",
+      "  '@drewv-js/web-components',",
+      "  '@drewv-js/web-components/auto-register',",
+      "  '@drewv-js/web-components/react',",
+      "  '@drewv-js/web-components/styles.css',",
+      "  '@drewv-js/web-components/tailwind-preset'",
       "];",
       "for (const entry of entries) {",
       "  const resolved = require.resolve(entry);",
       "  console.log('resolved', entry, resolved);",
       "}",
-      "await import('@dv-uikit/web-components/react');",
+      "await import('@drewv-js/web-components/react');",
       "console.log('compatibility import smoke test passed');"
     ].join('\n')
   );

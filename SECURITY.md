@@ -13,14 +13,14 @@ Do not open public issues with exploit details.
 
 ## Token Policy
 
-- Use npm granular access tokens only.
-- Use separate tokens for publishing and installing.
+- Use GitHub tokens only for GitHub Packages access.
+- Use separate tokens for publishing and installing when possible.
 - Set expiration on all tokens when possible.
 - Rotate tokens periodically or immediately if exposure is suspected.
 - Store tokens in CI secrets, never in source control.
 
 ## Practical Baseline
 
-- Keep package private (`access: restricted`).
-- Publish from CI using `NPM_PUBLISH_TOKEN`.
-- Use read-only token for local installs in consumer projects.
+- Keep the package private (`access: restricted`).
+- Publish from CI using the workflow's `GITHUB_TOKEN`.
+- Use a token with `read:packages` for local installs in consumer projects.

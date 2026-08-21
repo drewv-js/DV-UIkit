@@ -1,5 +1,5 @@
 {
-	"name": "@dv-uikit/web-components",
+	"name": "@drewv-js/web-components",
 	"version": "0.1.0",
 	"description": "Private reusable Web Component kit with Tailwind-based design tokens and React wrappers.",
 	"type": "module",
