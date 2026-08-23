@@ -343,22 +343,10 @@ export namespace Components {
 	 * | Component    | Purpose                            |
 	 * |--------------|------------------------------------|
 	 * | `<dv-icon>`   | Used for the loading spinner icon. |
-	 * @summary A versatile button component with primary, secondary, and text variants supporting icons, loading state, and destructive styling.
+	 * @summary A versatile button component with primary, secondary, and text variants supporting icons and loading state.
 	 * @tag dv-button
 	 */
 	interface DvButton {
-		/**
-		 * __⚠️@deprecated The prop 'dense' is deprecated as of v1.7.0.__ Use the `size` prop with value `'sm'` instead.
-		 * @since 0.12.0 - Initial introduction of dense prop
-		 * @since 1.7.0 - dense prop deprecated, use size='sm' instead
-		 * @default false
-		 */
-		dense: boolean;
-		/**
-		 * Applies destructive styling for delete or remove actions.
-		 * @default false
-		 */
-		destructive: boolean;
 		/**
 		 * Disables the button, preventing user interaction.
 		 * @default false
@@ -2990,7 +2978,7 @@ declare global {
 	 * | Component    | Purpose                            |
 	 * |--------------|------------------------------------|
 	 * | `<dv-icon>`   | Used for the loading spinner icon. |
-	 * @summary A versatile button component with primary, secondary, and text variants supporting icons, loading state, and destructive styling.
+	 * @summary A versatile button component with primary, secondary, and text variants supporting icons and loading state.
 	 * @tag dv-button
 	 */
 	interface HTMLDvButtonElement extends Components.DvButton, HTMLStencilElement {}
@@ -5585,22 +5573,10 @@ declare namespace LocalJSX {
 	 * | Component    | Purpose                            |
 	 * |--------------|------------------------------------|
 	 * | `<dv-icon>`   | Used for the loading spinner icon. |
-	 * @summary A versatile button component with primary, secondary, and text variants supporting icons, loading state, and destructive styling.
+	 * @summary A versatile button component with primary, secondary, and text variants supporting icons and loading state.
 	 * @tag dv-button
 	 */
 	interface DvButton {
-		/**
-		 * __⚠️@deprecated The prop 'dense' is deprecated as of v1.7.0.__ Use the `size` prop with value `'sm'` instead.
-		 * @since 0.12.0 - Initial introduction of dense prop
-		 * @since 1.7.0 - dense prop deprecated, use size='sm' instead
-		 * @default false
-		 */
-		dense?: boolean;
-		/**
-		 * Applies destructive styling for delete or remove actions.
-		 * @default false
-		 */
-		destructive?: boolean;
 		/**
 		 * Disables the button, preventing user interaction.
 		 * @default false
@@ -7903,7 +7879,6 @@ declare namespace LocalJSX {
 	}
 	interface DvButtonAttributes {
 		variant: 'primary' | 'secondary' | 'text';
-		destructive: boolean;
 		disabled: boolean;
 		loading: boolean;
 		isButtonGroup: boolean;
@@ -7911,7 +7886,6 @@ declare namespace LocalJSX {
 		type: 'button' | 'submit' | 'reset';
 		size: 'sm' | 'md';
 		form: string;
-		dense: boolean;
 	}
 	interface DvCalloutAttributes {
 		open: boolean;
@@ -8635,7 +8609,7 @@ declare module '@stencil/core' {
 			 * | Component    | Purpose                            |
 			 * |--------------|------------------------------------|
 			 * | `<dv-icon>`   | Used for the loading spinner icon. |
-			 * @summary A versatile button component with primary, secondary, and text variants supporting icons, loading state, and destructive styling.
+			 * @summary A versatile button component with primary, secondary, and text variants supporting icons and loading state.
 			 * @tag dv-button
 			 */
 			'dv-button': LocalJSX.IntrinsicElements['dv-button'] & JSXBase.HTMLAttributes<HTMLDvButtonElement>;

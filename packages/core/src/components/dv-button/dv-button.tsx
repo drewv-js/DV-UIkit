@@ -32,7 +32,7 @@ import { Component, Element, h, Host, Method, Prop, Watch } from '@stencil/core'
  * |--------------|------------------------------------|
  * | `<dv-icon>`   | Used for the loading spinner icon. |
  *
- * @summary A versatile button component with primary, secondary, and text variants supporting icons, loading state, and destructive styling.
+ * @summary A versatile button component with primary, secondary, and text variants supporting icons and loading state.
  *
  * @tag dv-button
  *
@@ -55,9 +55,6 @@ export class DvButton {
 	/** The visual style variant of the button. Accepts `'primary'`, `'secondary'`, or `'text'`. Defaults to `'primary'`. */
 	@Prop({ reflect: true }) variant?: 'primary' | 'secondary' | 'text' = 'primary';
 
-	/** Applies destructive styling for delete or remove actions. */
-	@Prop({ reflect: true }) destructive: boolean = false;
-
 	/** Disables the button, preventing user interaction. */
 	@Prop({ reflect: true }) disabled: boolean = false;
 
@@ -79,14 +76,6 @@ export class DvButton {
 
 	/** Associates the button with a form by its `id`. Useful when the button is rendered outside the form (e.g. in a Dialog footer). */
 	@Prop({ reflect: true }) form?: string;
-
-	/**
-	 * __⚠️@deprecated The prop 'dense' is deprecated as of v1.7.0.__ Use the `size` prop with value `'sm'` instead.
-	 *
-	 * @since 0.12.0 - Initial introduction of dense prop
-	 * @since 1.7.0 - dense prop deprecated, use size='sm' instead
-	 */
-	@Prop() dense: boolean = false;
 
 	/** Reference to the internal button element */
 	private buttonEl: HTMLButtonElement;
@@ -163,26 +152,13 @@ export class DvButton {
 		const baseClasses =
 			'max-w-full truncate rounded-radius-lg px-4 transition focus:outline-width-lg focus:outline-offset-0 focus-visible:outline focus-visible:outline-width-lg';
 
-		// Set color (text, background, border, focus) classes based on destructive prop
-		let colorsClasses: string;
-		let focusColorClasses: string;
-
-		if (this.destructive) {
-			colorsClasses =
-				this.variant === 'primary'
-					? 'text-button-destructive-knockout bg-button-destructive-knockout hover:bg-button-destructive-knockout-hover'
-					: 'text-button-destructive bg-button-destructive-default hover:bg-button-destructive-hover';
-			colorsClasses = this.variant !== 'text' ? `${colorsClasses} border-button-destructive` : colorsClasses;
-			focusColorClasses = 'focus:outline-focus-ring-destructive focus-visible:ring-focus-ring-destructive';
-		} else {
-			// Default brand styling
-			colorsClasses =
-				this.variant === 'primary'
-					? 'text-button-knockout bg-button-knockout hover:bg-button-knockout-hover'
-					: 'text-button-default bg-button-default hover:bg-button-default-hover';
-			colorsClasses = this.variant !== 'text' ? `${colorsClasses} border-button-default` : colorsClasses;
-			focusColorClasses = 'focus:outline-focus-ring-default focus-visible:ring-focus-ring-default';
-		}
+		// Default brand styling
+		let colorsClasses =
+			this.variant === 'primary'
+				? 'text-button-knockout bg-button-knockout hover:bg-button-knockout-hover'
+				: 'text-button-default bg-button-default hover:bg-button-default-hover';
+		colorsClasses = this.variant !== 'text' ? `${colorsClasses} border-button-default` : colorsClasses;
+		const focusColorClasses = 'focus:outline-focus-ring-default focus-visible:ring-focus-ring-default';
 
 		// Set variant-specific classes
 		let btnClassName;
@@ -222,8 +198,8 @@ export class DvButton {
 		// Add a Tailwind class for button to extend full-width
 		const fullWide = this.fullWidth ? 'w-full flex justify-center' : '';
 
-		// Set vertical padding and correct design tokens based on size prop (dense maps to 'sm')
-		const sizeClasses = this.size === 'sm' || this.dense ? 'label-sm py-1' : 'label-default py-2';
+		// Set vertical padding based on size prop
+		const sizeClasses = this.size === 'sm' ? 'label-sm py-1' : 'label-default py-2';
 
 		// Add border-radius classes based on isButtonGroup prop
 		const borderRadiusClass = this.isButtonGroup

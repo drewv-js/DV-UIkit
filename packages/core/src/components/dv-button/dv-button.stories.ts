@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/web-components-vite';
 import { html } from 'lit';
 import type { Components } from '../../components';
-import { getStoryHelpers, buildMultiFrameworkSource } from '../../internal/storybook-helpers';
+import { buildMultiFrameworkSource, getStoryHelpers } from '../../internal/storybook-helpers';
 
 type ButtonArgs = Omit<Components.DvButton, 'isButtonGroup' | 'setFocus' | 'variant' | 'size'> & {
 	variant: NonNullable<Components.DvButton['variant']>;
@@ -28,11 +28,9 @@ const buildReactButtonSnippet = (args: ButtonArgs, options: ButtonSnippetOptions
 
 	const props = [
 		variant !== 'primary' ? ` variant="${variant}"` : '',
-		args.destructive ? ' destructive' : '',
 		args.disabled ? ' disabled' : '',
 		args.loading ? ' loading' : '',
 		args.fullWidth ? ' fullWidth' : '',
-		args.dense ? ' dense' : '',
 		args.size !== 'md' ? ` size="${args.size}"` : '',
 		args.type !== 'submit' ? ` type="${args.type}"` : '',
 		' onClick={handleClick}'
@@ -69,11 +67,9 @@ const buildVueButtonSnippet = (args: ButtonArgs, options: ButtonSnippetOptions =
 
 	const props = [
 		variant !== 'primary' ? ` variant="${variant}"` : '',
-		args.destructive ? ' destructive' : '',
 		args.disabled ? ' disabled' : '',
 		args.loading ? ' loading' : '',
 		args.fullWidth ? ' full-width' : '',
-		args.dense ? ' dense' : '',
 		args.size !== 'md' ? ` size="${args.size}"` : '',
 		args.type !== 'submit' ? ` type="${args.type}"` : '',
 		' @click="handleClick"'
@@ -129,11 +125,9 @@ const meta: Meta<ButtonArgs> = {
 	},
 	args: {
 		variant: 'primary',
-		destructive: false,
 		disabled: false,
 		loading: false,
 		fullWidth: false,
-		dense: false,
 		size: 'md',
 		type: 'submit'
 	}
@@ -146,11 +140,9 @@ function renderButton(args: ButtonArgs, withStartIcon = false, withEndIcon = fal
 	return html`<div style="width: 100%; text-align: center;">
 		<dv-button
 			variant=${args.variant ?? 'primary'}
-			?destructive=${args.destructive}
 			?disabled=${args.disabled}
 			?loading=${args.loading}
 			?full-width=${args.fullWidth}
-			?dense=${args.dense}
 			size=${args.size ?? 'md'}
 			type=${args.type}
 		>
@@ -175,34 +167,6 @@ export const Secondary: Story = {
 export const Text: Story = {
 	args: { variant: 'text' },
 	parameters: { docs: { description: { story: 'A <strong>Link</strong> Button used for Links.' } } },
-	render: (args) => renderButton(args)
-};
-
-export const DestructivePrimary: Story = {
-	args: { destructive: true },
-	parameters: {
-		docs: {
-			description: { story: 'A <strong>destructive</strong> primary button. Used as the main button on a page.' }
-		}
-	},
-	render: (args) => renderButton(args)
-};
-
-export const DestructiveSecondary: Story = {
-	args: { variant: 'secondary', destructive: true },
-	parameters: {
-		docs: {
-			description: {
-				story: 'A <strong>destructive</strong> secondary button. Used as the alternative button on a page.'
-			}
-		}
-	},
-	render: (args) => renderButton(args)
-};
-
-export const DestructiveText: Story = {
-	args: { variant: 'text', destructive: true },
-	parameters: { docs: { description: { story: 'A <strong>destructive</strong> text button.' } } },
 	render: (args) => renderButton(args)
 };
 
@@ -260,21 +224,9 @@ export const LoadingPrimary: Story = {
 	render: (args) => renderButton(args)
 };
 
-export const LoadingDestructivePrimary: Story = {
-	args: { loading: true, destructive: true },
-	parameters: { docs: { description: { story: 'A <strong>loading</strong> destructive primary button.' } } },
-	render: (args) => renderButton(args)
-};
-
 export const LoadingSecondary: Story = {
 	args: { variant: 'secondary', loading: true },
 	parameters: { docs: { description: { story: 'A <strong>Loading</strong> Secondary Button.' } } },
-	render: (args) => renderButton(args)
-};
-
-export const LoadingDestructiveSecondary: Story = {
-	args: { variant: 'secondary', destructive: true, loading: true },
-	parameters: { docs: { description: { story: 'A <strong>loading</strong> destructive secondary button.' } } },
 	render: (args) => renderButton(args)
 };
 
@@ -298,5 +250,3 @@ export const StartAndEndIcon: Story = {
 	},
 	render: (args) => renderButton(args, true, true)
 };
-
-

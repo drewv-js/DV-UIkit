@@ -27,7 +27,6 @@ describe('dv-button', () => {
 			// Use the existing button instance from beforeEach
 			const instance = button.rootInstance;
 			expect(instance.variant).toBe('primary');
-			expect(instance.destructive).toBe(false);
 			expect(instance.disabled).toBe(false);
 			expect(instance.loading).toBe(false);
 			expect(instance.isButtonGroup).toBe(false);
@@ -218,81 +217,6 @@ describe('dv-button', () => {
 			expect(buttonElement).toHaveClass('py-2');
 		});
 
-		it('should render small destructive primary button correctly', async () => {
-			button.root.variant = 'primary';
-			button.root.destructive = true;
-			button.root.size = 'sm';
-			await button.waitForChanges();
-			const buttonElement = button.root.shadowRoot.querySelector('button');
-			expect(buttonElement).toHaveClass('text-button-destructive-knockout');
-			expect(buttonElement).toHaveClass('label-sm');
-			expect(buttonElement).toHaveClass('py-1');
-		});
-
-		it('should render button with primary variant in destructive colors', async () => {
-			button.root.variant = 'primary';
-			button.root.destructive = true;
-			// Create slot content
-			const slot = button.root.shadowRoot.querySelector('slot');
-			slot.innerHTML = 'primary button';
-			await button.waitForChanges();
-			// Check component's properties
-			expect(button.root.getAttribute('variant')).toBe('primary');
-			// Query button in the shadow DOM
-			const buttonElement = button.root.shadowRoot.querySelector('button');
-			// Check button's classes
-			expect(buttonElement).toHaveClass('text-button-destructive-knockout');
-			expect(buttonElement).toHaveClass('bg-button-destructive-knockout');
-			expect(buttonElement).toHaveClass('hover:bg-button-destructive-knockout-hover');
-			expect(buttonElement).toHaveClass('focus:outline-focus-ring-destructive');
-			expect(buttonElement).toHaveClass('focus-visible:ring-focus-ring-destructive');
-			// Check button's inner text
-			expect(buttonElement.textContent.trim()).toBe('primary button');
-		});
-
-		it('should render button with secondary variant in destructive colors', async () => {
-			button.root.variant = 'secondary';
-			button.root.destructive = true;
-			// Create slot content
-			const slot = button.root.shadowRoot.querySelector('slot');
-			slot.innerHTML = 'secondary button';
-			await button.waitForChanges();
-			// Check component's properties
-			expect(button.root.getAttribute('variant')).toBe('secondary');
-			// Query button in the shadow DOM
-			const buttonElement = button.root.shadowRoot.querySelector('button');
-			// Check button's classes
-			expect(buttonElement).toHaveClass('text-button-destructive');
-			expect(buttonElement).toHaveClass('bg-button-destructive-default');
-			expect(buttonElement).toHaveClass('hover:bg-button-destructive-hover');
-			expect(buttonElement).toHaveClass('focus:outline-focus-ring-destructive');
-			expect(buttonElement).toHaveClass('focus-visible:ring-focus-ring-destructive');
-			// Check if the slot content is rendered
-			expect(buttonElement.textContent.trim()).toBe('secondary button');
-		});
-
-		it('should render button with text variant in destructive colors', async () => {
-			button.root.variant = 'text';
-			button.root.destructive = true;
-			await button.waitForChanges();
-			// Create slot content
-			const slot = button.root.shadowRoot.querySelector('slot');
-			slot.innerHTML = 'text button';
-			await button.waitForChanges();
-			// Check component's properties
-			expect(button.root.getAttribute('variant')).toBe('text');
-			// Query the button in the shadow DOM
-			const buttonElement = button.root.shadowRoot.querySelector('button');
-			// Check text's classes
-			expect(buttonElement).toHaveClass('text-button-destructive');
-			expect(buttonElement).toHaveClass('bg-button-destructive-default');
-			expect(buttonElement).toHaveClass('hover:bg-button-destructive-hover');
-			expect(buttonElement).toHaveClass('focus:outline-focus-ring-destructive');
-			expect(buttonElement).toHaveClass('focus-visible:ring-focus-ring-destructive');
-			// Check if the slot content is rendered
-			expect(buttonElement.textContent.trim()).toBe('text button');
-		});
-
 		it('should set is-button-group attribute when isButtonGroup is true', async () => {
 			button.root.isButtonGroup = true;
 			await button.waitForChanges();
@@ -352,15 +276,6 @@ describe('dv-button', () => {
 			expect(buttonElement).toHaveClass('w-full');
 			expect(buttonElement).toHaveClass('flex');
 			expect(buttonElement).toHaveClass('justify-center');
-		});
-
-		it('should render button with destructive text variant without border classes', async () => {
-			button.root.variant = 'text';
-			button.root.destructive = true;
-			await button.waitForChanges();
-			const buttonElement = button.root.shadowRoot.querySelector('button');
-			// This tests the specific branch where destructive + text variant doesn't get border classes
-			expect(buttonElement).not.toHaveClass('border-button-destructive');
 		});
 
 		it('should render button with truncate class when not loading', async () => {
