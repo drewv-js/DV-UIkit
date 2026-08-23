@@ -51,7 +51,7 @@ describe('dv-step', () => {
 
 			const icon = step.root.shadowRoot.querySelector('dv-icon');
 			expect(icon.getAttribute('name')).toBe('check');
-			const iconContainer = step.root.shadowRoot.querySelector('.text-status-success-knockout');
+			const iconContainer = step.root.shadowRoot.querySelector('.text-status-success');
 			expect(iconContainer).toBeTruthy();
 			expect(iconContainer.querySelector('dv-icon')).toBeTruthy();
 		});
@@ -90,4 +90,3 @@ describe('dv-step', () => {
 		});
 	});
 });
-

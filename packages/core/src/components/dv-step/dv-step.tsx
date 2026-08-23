@@ -1,7 +1,7 @@
 import type { EventEmitter } from '@stencil/core';
-import { Component, Host, h, Prop, Event, Element } from '@stencil/core';
-import { SELECTED_CHANGED_EVENT } from '../../events';
+import { Component, Element, Event, h, Host, Prop } from '@stencil/core';
 import type { SelectedChangedEventDetail } from '../../events';
+import { SELECTED_CHANGED_EVENT } from '../../events';
 
 /**
  * ## Overview
@@ -111,7 +111,7 @@ export class DvStep {
 			case 'completed':
 				iconElement = (
 					<div
-						class={`${this.baseIconClasses} border-width-md border-status-success bg-status-success-knockout text-status-success-knockout`}
+						class={`${this.baseIconClasses} border-width-md border-status-success bg-status-success-knockout text-status-success`}
 					>
 						<dv-icon name="check" size="xs" class="scale-150" />
 					</div>
@@ -120,7 +120,7 @@ export class DvStep {
 			case 'active':
 				iconElement = (
 					<div class="rounded-radius-full border-width-md border-brand inline-block m-1 bg-default">
-						<div class="size-8 flex items-center justify-center rounded-radius-full border border-knockout bg-brand-knockout text-brand-knockout body-default m-0.5">
+						<div class="size-8 flex items-center justify-center rounded-radius-full border border-knockout bg-brand-knockout text-brand body-default m-0.5">
 							{this.index}
 						</div>
 					</div>
@@ -172,4 +172,3 @@ export class DvStep {
 		);
 	}
 }
-

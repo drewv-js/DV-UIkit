@@ -1,4 +1,4 @@
-import { Component, Host, h, Prop } from '@stencil/core';
+import { Component, h, Host, Prop } from '@stencil/core';
 
 /**
  * ## Overview
@@ -101,8 +101,8 @@ export class DvAvatar {
 			return '';
 		}
 		return this.knockout
-			? 'bg-brand-knockout text-brand-knockout label-default'
-			: 'border-width-sm border-brand bg-brand text-brand label-default';
+			? 'bg-brand-knockout text-brand label-default'
+			: 'border-width-sm border-brand bg-brand text-brand-knockout label-default';
 	}
 
 	/** Returns the icon size based on the size prop */
@@ -135,4 +135,3 @@ export class DvAvatar {
 		);
 	}
 }
-

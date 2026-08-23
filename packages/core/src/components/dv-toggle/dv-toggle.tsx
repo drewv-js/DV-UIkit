@@ -174,8 +174,8 @@ export class DvToggle {
 		const iconColor = this.disabled
 			? 'text-disabled bg-disabled'
 			: this.checked
-				? 'text-brand-knockout bg-brand-knockout'
-				: 'text-brand bg-brand';
+				? 'text-brand bg-brand-knockout'
+				: 'text-brand-knockout bg-brand';
 
 		const iconPositioning = this.checked ? 'right-px translate-x-0' : 'left-0.5';
 
@@ -236,4 +236,3 @@ export class DvToggle {
 		);
 	}
 }
-

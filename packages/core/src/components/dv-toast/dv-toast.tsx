@@ -1,8 +1,8 @@
 import type { EventEmitter } from '@stencil/core';
-import { Component, Element, Event, h, Method, Prop, State, Watch, Host } from '@stencil/core';
+import { Component, Element, Event, h, Host, Method, Prop, State, Watch } from '@stencil/core';
+import { HIDE_EVENT, SHOW_EVENT } from '../../events';
 import type { IconName } from '../../icon-name.generated';
 import { getColorGroups } from '../../internal/color';
-import { SHOW_EVENT, HIDE_EVENT } from '../../events';
 
 const toastStack = Object.assign(document.createElement('div'), {
 	// ToDo: When we expose root.css we should replace the
@@ -291,7 +291,7 @@ export class DvToast {
 		const { iconName, iconColor } = this.getIconDetails();
 
 		const baseClass =
-			'flex items-center transition-opacity duration-300 ease-in-out border-t-4 rounded-radius-lg shadow-sm-bottom bg-brand-knockout text-brand-knockout w-80 xl:w-[440px] px-4 py-4 mb-4 gap-4';
+			'flex items-center transition-opacity duration-300 ease-in-out border-t-4 rounded-radius-lg shadow-sm-bottom bg-brand-knockout text-brand w-80 xl:w-[440px] px-4 py-4 mb-4 gap-4';
 		const stateClass = this.isExiting
 			? 'opacity-0 -translate-y-4'
 			: this.isEntering
@@ -333,4 +333,3 @@ export class DvToast {
 		);
 	}
 }
-

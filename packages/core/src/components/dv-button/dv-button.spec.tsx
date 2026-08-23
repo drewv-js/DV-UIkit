@@ -167,8 +167,9 @@ describe('dv-button', () => {
 			// Query the button element in the shadow DOM
 			const buttonElement = button.root.shadowRoot.querySelector('button');
 			// Check button's classes for disabled state
-			expect(buttonElement).toHaveClass('bg-button-knockout-disabled');
-			expect(buttonElement).toHaveClass('text-button-knockout-disabled');
+			expect(buttonElement).toHaveClass('bg-background-disabled');
+			expect(buttonElement).toHaveClass('text-content-disabled');
+			expect(buttonElement).toHaveClass('border-border-disabled');
 			expect(buttonElement).toHaveClass('cursor-not-allowed');
 		});
 
@@ -181,9 +182,9 @@ describe('dv-button', () => {
 			// Check that the button is disabled
 			expect(buttonElement).toHaveAttribute('disabled');
 			// Check button's classes for disabled state
-			expect(buttonElement).toHaveClass('bg-button-default-disabled');
-			expect(buttonElement).toHaveClass('text-button-default-disabled');
-			expect(buttonElement).toHaveClass('border-button-default-disabled');
+			expect(buttonElement).toHaveClass('bg-background-disabled');
+			expect(buttonElement).toHaveClass('text-content-disabled');
+			expect(buttonElement).toHaveClass('border-border-disabled');
 			expect(buttonElement).toHaveClass('cursor-not-allowed');
 		});
 
@@ -196,7 +197,7 @@ describe('dv-button', () => {
 			// Check that the button is disabled
 			expect(buttonElement).toHaveAttribute('disabled');
 			// Check button's classes for disabled state
-			expect(buttonElement).toHaveClass('text-button-default-disabled');
+			expect(buttonElement).toHaveClass('text-content-disabled');
 			expect(buttonElement).toHaveClass('cursor-not-allowed');
 			expect(buttonElement).toHaveClass('block');
 		});
@@ -691,4 +692,3 @@ describe('dv-button', () => {
 		});
 	});
 });
-

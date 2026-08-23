@@ -6,6 +6,7 @@ module.exports = {
 			...(tokenPreset.theme?.extend ?? {}),
 			colors: {
 				brand: {
+					DEFAULT: '#343d68',
 					50: '#f8f9ff',
 					100: '#e8e9f6',
 					200: '#d4d6ed',

@@ -1,4 +1,4 @@
-import { Component, Element, Host, h, Prop, Watch, Method } from '@stencil/core';
+import { Component, Element, h, Host, Method, Prop, Watch } from '@stencil/core';
 
 /**
  * ## Overview
@@ -202,15 +202,15 @@ export class DvButton {
 		if (this.disabled) {
 			switch (this.variant) {
 				case 'primary': {
-					disabledClasses = `${disabledBaseClasses} bg-button-knockout-disabled text-button-knockout-disabled`;
+					disabledClasses = `${disabledBaseClasses} bg-background-disabled text-content-disabled border border-border-disabled`;
 					break;
 				}
 				case 'secondary': {
-					disabledClasses = `${disabledBaseClasses} bg-button-default-disabled text-button-default-disabled border border-button-default-disabled`;
+					disabledClasses = `${disabledBaseClasses} bg-background-disabled text-content-disabled border border-border-disabled`;
 					break;
 				}
 				case 'text': {
-					disabledClasses = `${disabledBaseClasses} text-button-default-disabled block`;
+					disabledClasses = `${disabledBaseClasses} text-content-disabled block`;
 					break;
 				}
 			}
@@ -263,4 +263,3 @@ export class DvButton {
 		);
 	}
 }
-

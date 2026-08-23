@@ -29,7 +29,7 @@ describe('dv-avatar', () => {
 			// Check default properties
 			const wrapperDiv = avatarSpec.root.shadowRoot.querySelector('div');
 			expect(wrapperDiv.className).toBe(
-				'size-10 border-width-sm border-brand bg-brand text-brand label-default flex grow-0 shrink-0 items-center justify-center rounded-radius-full overflow-hidden'
+				'size-10 border-width-sm border-brand bg-brand text-brand-knockout label-default flex grow-0 shrink-0 items-center justify-center rounded-radius-full overflow-hidden'
 			);
 		});
 	});
@@ -113,7 +113,7 @@ describe('dv-avatar', () => {
 
 			const wrapperDiv = avatarSpec.root.shadowRoot.querySelector('div');
 			expect(wrapperDiv.className).toContain('bg-brand-knockout');
-			expect(wrapperDiv.className).toContain('text-brand-knockout');
+			expect(wrapperDiv.className).toContain('text-brand');
 		});
 
 		it('should apply default brand styling when knockout is false', async () => {
@@ -123,7 +123,7 @@ describe('dv-avatar', () => {
 			const wrapperDiv = avatarSpec.root.shadowRoot.querySelector('div');
 			expect(wrapperDiv.className).toContain('border-brand');
 			expect(wrapperDiv.className).toContain('bg-brand');
-			expect(wrapperDiv.className).toContain('text-brand');
+			expect(wrapperDiv.className).toContain('text-brand-knockout');
 			expect(wrapperDiv.className).not.toContain('bg-brand-knockout');
 		});
 
@@ -239,4 +239,3 @@ describe('dv-avatar', () => {
 		});
 	});
 });
-

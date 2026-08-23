@@ -1,6 +1,6 @@
 import type { EventEmitter } from '@stencil/core';
 import { Component, Element, Event, Host, Method, Prop, Watch, h } from '@stencil/core';
-import { SHOW_EVENT, HIDE_EVENT, AFTER_SHOW_EVENT, AFTER_HIDE_EVENT } from '../../events';
+import { AFTER_HIDE_EVENT, AFTER_SHOW_EVENT, HIDE_EVENT, SHOW_EVENT } from '../../events';
 
 let id = 0;
 
@@ -420,7 +420,7 @@ export class DvTooltip {
 						ref={(el) => (this.body = el)}
 						id={this.componentId}
 						role="tooltip"
-						class={`block ${this.maxWidth ? '' : 'w-max'} text-start rounded-radius-lg bg-status-neutral-knockout text-status-neutral-knockout px-4 py-2 body-default pointer-events-none z-60`}
+						class={`block ${this.maxWidth ? '' : 'w-max'} text-start rounded-radius-lg bg-status-neutral-knockout text-status-neutral px-4 py-2 body-default pointer-events-none z-60`}
 						aria-live={this.open ? 'polite' : 'off'}
 						style={{ maxWidth: `${this.maxWidth ? maxWidthString : ''}` }}
 					>
@@ -431,4 +431,3 @@ export class DvTooltip {
 		);
 	}
 }
-
