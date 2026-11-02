@@ -115,6 +115,7 @@
 	"devDependencies": {
 		"@eslint/js": "^9.39.4",
 		"@storybook/addon-docs": "^10.5.0",
+		"@storybook/web-components": "^10.5.0",
 		"@storybook/web-components-vite": "^10.4.6",
 		"@types/jest": "^29.5.14",
 		"@types/node": "^24.0.0",
