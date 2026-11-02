@@ -1,10 +1,10 @@
 import type { Preview } from '@storybook/web-components-vite';
 import { setCustomElements } from '@storybook/web-components';
 import '../src/styles/tokens.css';
-import { defineCustomElements } from '../dist/loader';
 import customElements from '../dist/custom-elements.json';
 
-void defineCustomElements();
+const loaderUrl = new URL('./stencil/loader.js', document.baseURI).href;
+void import(/* @vite-ignore */ loaderUrl).then(({ defineCustomElements }) => defineCustomElements());
 
 type StencilDocsJson = {
   components?: Array<{

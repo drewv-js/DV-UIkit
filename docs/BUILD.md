@@ -46,6 +46,9 @@ Keep packages imported by stories and Storybook configuration explicitly declare
 a local transitive or leftover dependency can hide missing dependencies that fail on a clean CI runner.
 
 The static Storybook site is generated in `.artifacts/storybook-static`.
+Storybook copies Stencil's lazy-loaded modules from `packages/core/dist/esm` into
+its `stencil` directory. The preview loads these modules relative to the site's
+base URL so component examples work on subpath deployments such as GitHub Pages.
 
 Build outputs are generated in `packages/core/dist`:
 
