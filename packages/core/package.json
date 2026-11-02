@@ -46,7 +46,7 @@
 		"lint": "eslint \"src/**/*.{ts,tsx}\"",
 		"component:new": "node ./scripts/new-component.mjs",
 		"component:check": "node ./scripts/validate-components.mjs",
-		"storybook:prepare": "npm run build:styles && npm run build:stencil",
+		"storybook:prepare": "npm --prefix ../design-tokens run build && npm run build:styles && npm run build:stencil",
 		"storybook": "npm run storybook:prepare && storybook dev -p 6006",
 		"storybook:build": "npm run storybook:prepare && storybook build -o ../../.artifacts/storybook-static",
 		"test": "stencil test --spec",
