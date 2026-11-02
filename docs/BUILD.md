@@ -40,6 +40,13 @@ Create a static Storybook build:
 npm run storybook:build
 ```
 
+Storybook preparation builds design tokens before Core styles and Stencil components.
+Stories use Lit for HTML templates; `lit` is declared in Core's development dependencies.
+Keep packages imported by stories and Storybook configuration explicitly declared:
+a local transitive or leftover dependency can hide missing dependencies that fail on a clean CI runner.
+
+The static Storybook site is generated in `.artifacts/storybook-static`.
+
 Build outputs are generated in `packages/core/dist`:
 
 - `index.js` and `auto-register.js`

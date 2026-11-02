@@ -66,6 +66,7 @@
 	"devDependencies": {
 		"@storybook/test-runner": "^0.24.4",
 		"http-server": "^14.1.1",
+		"lit": "^3.3.3",
 		"playwright": "^1.62.1",
 		"start-server-and-test": "^3.0.12"
 	}
